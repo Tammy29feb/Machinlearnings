@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms Visualizer | ML Masterclass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0061ff',
+                            cyan: '#60efff',
+                            dark: '#050a18',
+                            surface: '#0d1526'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        grotesk: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-dark text-gray-200 font-sans selection:bg-brand-blue selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 nav-blur">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-sm"></i>
+                </div>
+                <span class="font-grotesk font-bold text-xl tracking-tight text-white">Algorithm Lab</span>
+            </a>
+            <div class="hidden lg:flex gap-8 items-center text-sm font-medium">
+                <a href="index.html" class="hover:text-brand-cyan transition-colors">Home</a>
+                <div class="group relative py-4">
+                    <button class="flex items-center gap-1 hover:text-brand-cyan transition-colors">
+                        Modules <i
+                            class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div
+                        class="absolute top-[100%] left-0 w-64 glass-card p-4 rounded-2xl opacity-0 invisible translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-50">
+                        <div class="flex flex-col gap-2">
+                            <a href="algorithms.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Algorithms</div>
+                                    <div class="text-[10px] text-gray-500">Visual logic deep-dive</div>
+                                </div>
+                            </a>
+                            <a href="deep-learning.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Deep Learning</div>
+                                    <div class="text-[10px] text-gray-500">Neural architectures</div>
+                                </div>
+                            </a>
+                            <a href="nlp.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">NLP</div>
+                                    <div class="text-[10px] text-gray-500">Natural Language</div>
+                                </div>
+                            </a>
+                            <a href="industry.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Industry</div>
+                                    <div class="text-[10px] text-gray-500">Real-world impact</div>
+                                </div>
+                            </a>
+                            <a href="ethics.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Ethics & Future</div>
+                                    <div class="text-[10px] text-gray-500">Responsible AI</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#metrics" class="hover:text-brand-cyan transition-colors">Metrics</a>
+                <a href="index.html#live-demo" class="hover:text-brand-cyan transition-colors">Visualizer</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 hero-gradient">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl lg:text-7xl font-grotesk font-bold text-white mb-6">Visualizing <span
+                    class="text-gradient">Logic.</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                Step inside the engine room of artificial intelligence. Explore how data transforms into decisions
+                through mathematical elegance.
+            </p>
+        </div>
+    </header>
+
+    <!-- Interactive Section: Decision Trees -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold mb-6 tracking-widest uppercase">
+                        Supervised logic
+                    </div>
+                    <h2 class="text-4xl font-grotesk font-bold text-white mb-6">Decision Trees: <br>The <span
+                            class="text-emerald-400">If-Then</span> Path</h2>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        A decision tree is a flowchart-like structure in which each internal node represents a "test" on
+                        an attribute. It's the most intuitive way machines make choices.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="p-6 glass-card rounded-2xl">
+                            <h4 class="text-white font-bold mb-2">Maximum Information Gain</h4>
+                            <p class="text-xs text-gray-500">The algorithm chooses splits that reduce entropy
+                                (uncertainty) the most at each step.</p>
+                        </div>
+                        <div class="p-6 glass-card rounded-2xl border-emerald-500/30">
+                            <h4 class="text-white font-bold mb-2">Overfitting Prevention</h4>
+                            <p class="text-xs text-gray-500">Pruning techniques ensure the tree doesn't grow too deep
+                                and memorize noise instead of patterns.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-10 rounded-[3rem] reveal-on-scroll">
+                    <svg viewBox="0 0 400 300" class="w-full h-auto">
+                        <!-- Tree Visualization -->
+                        <g stroke="#334155" stroke-width="2">
+                            <line x1="200" y1="50" x2="100" y2="120" />
+                            <line x1="200" y1="50" x2="300" y2="120" />
+                            <line x1="100" y1="120" x2="50" y2="200" />
+                            <line x1="100" y1="120" x2="150" y2="200" />
+                        </g>
+                        <!-- Nodes -->
+                        <rect x="170" y="30" width="60" height="40" rx="8" fill="#1e293b" stroke="#3b82f6" />
+                        <text x="200" y="55" text-anchor="middle" fill="#fff" font-size="10">Root</text>
+
+                        <circle cx="100" cy="120" r="20" fill="#065f46" stroke="#10b981" />
+                        <text x="100" y="123" text-anchor="middle" fill="#fff" font-size="8">Split</text>
+
+                        <circle cx="300" cy="120" r="20" fill="#1e293b" stroke="#334155" />
+                        <text x="300" y="123" text-anchor="middle" fill="#fff" font-size="8">Leaf</text>
+
+                        <circle cx="50" cy="200" r="15" fill="#1e293b" stroke="#334155" />
+                        <circle cx="150" cy="200" r="15" fill="#1e293b" stroke="#334155" />
+                    </svg>
+                    <p class="text-center text-[10px] text-gray-600 mt-6 uppercase font-bold tracking-widest">Recursive
+                        Partitioning Visualization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Vector Machine Deep Dive -->
+    <section class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-20">
+                <h2 class="text-4xl lg:text-5xl font-grotesk font-bold text-white mb-6">Finding the <span
+                        class="text-gradient">Hyperplane.</span></h2>
+                <p class="text-gray-400">Support Vector Machines (SVM) find the ultimate boundary that separates
+                    different data universes with maximum breathing room.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-[2.5rem]">
+                    <div class="text-brand-blue mb-6"><i class="fas fa-arrows-left-right text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Large Margin</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Unlike other models that just separate points, SVM
+                        maximizes the distance to the nearest data points (support vectors).</p>
+                </div>
+                <div class="glass-card p-10 rounded-[2.5rem] border-brand-blue/20">
+                    <div class="text-brand-cyan mb-6"><i class="fas fa-cube text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-white">The Kernel Trick</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">When data cannot be separated by a straight line,
+                        SVM projects it into a higher dimension where a linear cut becomes possible.</p>
+                </div>
+                <div class="glass-card p-10 rounded-[2.5rem]">
+                    <div class="text-indigo-400 mb-6"><i class="fas fa-shield-virus text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Robustness</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">By focusing only on support vectors, SVM remains
+                        effective even in high-dimensional spaces with few samples.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-sm"></i>
+                </div>
+                <span class="font-grotesk font-bold text-white">Machine Learning Portal</span>
+            </div>
+            <p class="text-gray-600 text-sm">© 2026 AI Educational Portal. Built for enthusiasts.</p>
+            <div class="flex gap-6 text-gray-500">
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

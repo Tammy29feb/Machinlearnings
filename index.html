@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Machine Learning | Educational Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0061ff',
+                            cyan: '#60efff',
+                            dark: '#050a18',
+                            surface: '#0d1526'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        grotesk: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-brand-dark text-gray-200 font-sans selection:bg-brand-blue selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-brand-dark/80 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-sm"></i>
+                </div>
+                <span class="font-grotesk font-bold text-xl tracking-tight text-white">Machine Learning</span>
+            </div>
+            <div class="hidden lg:flex gap-8 items-center text-sm font-medium">
+                <a href="index.html" class="text-brand-cyan">Home</a>
+                <div class="group relative py-4">
+                    <button class="flex items-center gap-1 hover:text-brand-cyan transition-colors">
+                        Modules <i
+                            class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div
+                        class="absolute top-[100%] left-0 w-64 glass-card p-4 rounded-2xl opacity-0 invisible translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-50">
+                        <div class="flex flex-col gap-2">
+                            <a href="algorithms.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold text-xs">Algorithms</div>
+                                    <div class="text-[10px] text-gray-500">Visual logic deep-dive</div>
+                                </div>
+                            </a>
+                            <a href="deep-learning.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold text-xs">Deep Learning</div>
+                                    <div class="text-[10px] text-gray-500">Neural architectures</div>
+                                </div>
+                            </a>
+                            <a href="nlp.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold text-xs">NLP</div>
+                                    <div class="text-[10px] text-gray-500">Natural Language</div>
+                                </div>
+                            </a>
+                            <a href="industry.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold text-xs">Industry</div>
+                                    <div class="text-[10px] text-gray-500">Real-world impact</div>
+                                </div>
+                            </a>
+                            <a href="ethics.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold text-xs">Ethics & Future</div>
+                                    <div class="text-[10px] text-gray-500">Responsible AI</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#metrics" class="hover:text-brand-cyan transition-colors">Metrics</a>
+                <a href="#live-demo" class="hover:text-brand-cyan transition-colors">Visualizer</a>
+                <a href="#enrollment"
+                    class="bg-white text-brand-dark px-5 py-2 rounded-full font-bold hover:bg-brand-blue hover:text-white transition-all">Enroll
+                    Free</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen hero-gradient flex items-center pt-20">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-cyan text-xs font-bold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                    THE BEGINNER'S GUIDE TO ML
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-grotesk font-bold leading-tight mb-8 text-white">
+                    Master Machine Learning with <span class="text-gradient">Visual Logic.</span>
+                </h1>
+                <p class="text-lg text-gray-400 mb-10 max-w-lg leading-relaxed">
+                    Artificial Intelligence is complex, but understanding it shouldn't be. Learn the core models that
+                    power today's technology through visuals and live data simulation.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#basics"
+                        class="px-8 py-4 bg-brand-blue hover:bg-blue-600 rounded-xl font-bold transition-all shadow-lg shadow-brand-blue/20">Learn
+                        the Basics</a>
+                    <a href="#live-demo" class="px-8 py-4 glass-card rounded-xl font-bold transition-all">See AI in
+                        Action</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-brand-blue/20 blur-3xl rounded-full"></div>
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4628c9757?q=80&w=1600&auto=format&fit=crop"
+                    alt="AI Brain Concept" class="relative rounded-3xl border border-white/10 shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Simulation Section -->
+    <section id="live-demo" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="glass-card p-12 lg:p-20 rounded-[4rem] border-brand-blue/10 overflow-hidden">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div>
+                        <h6 class="text-brand-cyan font-bold tracking-[0.2em] uppercase mb-4 text-xs">interactive
+                            laboratory</h6>
+                        <h2 class="text-5xl font-grotesk font-bold text-white mb-8">Model <span
+                                class="text-gradient">Training Hub</span></h2>
+                        <p class="text-gray-400 mb-10 leading-relaxed">Watch how neural networks learn in real-time.
+                            This interactive plotter simulates prediction error (loss) and model confidence (accuracy)
+                            across training epochs.</p>
+
+                        <div class="flex gap-4">
+                            <button onclick="simulateTraining()"
+                                class="px-8 py-4 bg-brand-blue hover:bg-blue-600 rounded-xl font-bold transition-all shadow-lg shadow-brand-blue/20">Start
+                                Simulation</button>
+                            <button onclick="resetPlot()"
+                                class="px-8 py-4 glass-card rounded-xl font-bold transition-all">Reset Model</button>
+                        </div>
+                    </div>
+                    <div class="h-[400px] relative bg-brand-dark/50 rounded-3xl p-6 border border-white/5">
+                        <canvas id="trainingChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 5 Pillars of Mastery -->
+    <section id="basics" class="py-32 bg-brand-surface/40">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">Curated Learning Path</h6>
+                <h2 class="text-3xl lg:text-5xl font-grotesk font-bold mb-6 text-white">5 Dimensions of <span
+                        class="text-gradient">ML Excellence</span></h2>
+                <p class="text-gray-400 text-lg">Master the complete spectrum of Artificial Intelligence through our
+                    deep-dive modules.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Module 1 -->
+                <a href="algorithms.html" class="glass-card p-8 rounded-3xl group">
+                    <div
+                        class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Algorithms</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed">Fundamental logic and mathematical proofs.</p>
+                </a>
+                <!-- Module 2 -->
+                <a href="deep-learning.html" class="glass-card p-8 rounded-3xl group">
+                    <div
+                        class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Deep Learning</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed">Neural architectures and high-res vision.</p>
+                </a>
+                <!-- Module 3 -->
+                <a href="nlp.html" class="glass-card p-8 rounded-3xl group">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-all">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">NLP</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed">Human language and semantic context.</p>
+                </a>
+                <!-- Module 4 -->
+                <a href="industry.html" class="glass-card p-8 rounded-3xl group">
+                    <div
+                        class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400 mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Industry</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed">Real-world impact and ROI analysis.</p>
+                </a>
+                <!-- Module 5 -->
+                <a href="ethics.html" class="glass-card p-8 rounded-3xl group">
+                    <div
+                        class="w-12 h-12 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-400 mb-6 group-hover:bg-rose-500 group-hover:text-white transition-all">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Ethics</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed">Responsible AI and future frontiers.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 3 Pillars Section -->
+
+    <!-- Mathematical Foundations Section -->
+    <section id="math" class="py-32 bg-brand-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal-left">
+                    <h2 class="text-4xl font-grotesk font-bold mb-8 text-white">The Math Behind <span
+                            class="text-gradient">The Magic</span></h2>
+                    <p class="text-gray-400 mb-10 leading-relaxed">Machine Learning isn't just "training"—it's pure
+                        mathematics. From probability to calculus, every algorithm follows a strict mathematical proof.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="p-6 bg-brand-surface border border-white/5 rounded-2xl">
+                            <h5 class="text-brand-cyan font-bold mb-3 uppercase tracking-widest text-xs">Cost Function
+                                (MSE)</h5>
+                            <div class="bg-black/30 p-4 rounded-xl font-mono text-sm text-center">
+                                J(θ) = 1/2m ∑ (h<sub>θ</sub>(x<sup>i</sup>) - y<sup>i</sup>)<sup>2</sup>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-3 italic">Measures the average squared difference between
+                                predictions and actual values.</p>
+                        </div>
+
+                        <div class="p-6 bg-brand-surface border border-white/5 rounded-2xl">
+                            <h5 class="text-brand-blue font-bold mb-3 uppercase tracking-widest text-xs">Gradient
+                                Descent</h5>
+                            <div class="bg-black/30 p-4 rounded-xl font-mono text-sm text-center">
+                                θ<sub>j</sub> := θ<sub>j</sub> - α ∂/∂θ<sub>j</sub> J(θ)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-3 italic">The iterative optimization algorithm used to
+                                minimize the Cost Function.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-right">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div class="h-1 bg-brand-blue mb-4"></div>
+                            <h6 class="font-bold text-white mb-2">Sigmoid</h6>
+                            <div class="text-[10px] text-gray-500 mb-2">1 / (1 + e<sup>-z</sup>)</div>
+                            <p class="text-[10px] text-gray-400">Forces value between 0 and 1.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div class="h-1 bg-brand-cyan mb-4"></div>
+                            <h6 class="font-bold text-white mb-2">ReLU</h6>
+                            <div class="text-[10px] text-gray-500 mb-2">max(0, x)</div>
+                            <p class="text-[10px] text-gray-400">Eliminates negative gradients.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div class="h-1 bg-indigo-500 mb-4"></div>
+                            <h6 class="font-bold text-white mb-2">Information Gain</h6>
+                            <div class="text-[10px] text-gray-500 mb-2">Entropy(S) - ∑ Entropy(S<sub>v</sub>)</div>
+                            <p class="text-[10px] text-gray-400">Basis for Decision Trees.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div class="h-1 bg-emerald-500 mb-4"></div>
+                            <h6 class="font-bold text-white mb-2">Euclidean Dist.</h6>
+                            <div class="text-[10px] text-gray-500 mb-2">√(∑ (x<sub>i</sub> - y<sub>i</sub>)<sup>2</sup>)
+                            </div>
+                            <p class="text-[10px] text-gray-400">Core of KNN & Clustering.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Algorithm Masterclass: Mathematical & Logical Deep-Dive -->
+    <section id="algorithms" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">High-Resolution Logic</h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">Algorithm <span class="text-gradient">Engine
+                        Room</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Every model explained through its core logic, mathematical
+                    identity, and visual representation.</p>
+            </div>
+
+            <!-- Model 1: Linear Regression -->
+            <div class="glass-card p-12 lg:p-20 rounded-[4rem] mb-16 border-white/5 reveal-on-scroll">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-8 text-brand-blue">
+                            <i class="fas fa-chart-line text-3xl"></i>
+                            <h3 class="text-3xl font-grotesk font-bold text-white">01. Linear Regression</h3>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed">The bedrock of Supervised Learning. It models the
+                            relationship between a dependent scalar variable and one or more explanatory variables by
+                            fitting a linear equation to observed data.</p>
+
+                        <div class="mb-10">
+                            <h5 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">The Mathematical
+                                Identity</h5>
+                            <div
+                                class="bg-brand-surface p-6 rounded-2xl border border-brand-blue/20 font-mono text-brand-blue text-lg">
+                                Y = β₀ + β₁X + ε
+                            </div>
+                            <p class="text-[10px] text-gray-600 mt-3">Where β₀ is Intercept, β₁ is Coefficient/Slope,
+                                and ε is Error Term.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-1.5"></div>
+                                <p class="text-xs text-gray-500"><strong>Goal:</strong> Minimize the Sum of Squared
+                                    Residuals (SSR).</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-1.5"></div>
+                                <p class="text-xs text-gray-500"><strong>Assumptions:</strong> Linearity,
+                                    Homoscedasticity, Independence, and Normality.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SVG Graph: Linear Fit -->
+                    <div class="relative bg-brand-surface/50 rounded-[3rem] p-8 border border-white/5">
+                        <svg viewBox="0 0 400 300" class="w-full h-auto">
+                            <!-- Axis -->
+                            <line x1="40" y1="260" x2="360" y2="260" stroke="#333" stroke-width="2" />
+                            <line x1="40" y1="260" x2="40" y2="40" stroke="#333" stroke-width="2" />
+                            <!-- Data Points -->
+                            <circle cx="80" cy="220" r="4" fill="#60a5fa" opacity="0.6" />
+                            <circle cx="120" cy="180" r="4" fill="#60a5fa" opacity="0.6" />
+                            <circle cx="160" cy="190" r="4" fill="#60a5fa" opacity="0.6" />
+                            <circle cx="200" cy="120" r="4" fill="#60a5fa" opacity="0.6" />
+                            <circle cx="240" cy="130" r="4" fill="#60a5fa" opacity="0.6" />
+                            <circle cx="280" cy="80" r="4" fill="#60a5fa" opacity="0.6" />
+                            <circle cx="320" cy="95" r="4" fill="#60a5fa" opacity="0.6" />
+                            <!-- Best Fit Line -->
+                            <line x1="40" y1="240" x2="360" y2="60" stroke="#3b82f6" stroke-width="3"
+                                stroke-linecap="round" />
+                            <text x="300" y="50" fill="#3b82f6" font-family="monospace" font-size="12">ŷ = mx + c</text>
+                        </svg>
+                        <p class="text-center text-[10px] text-gray-600 mt-4 uppercase font-bold tracking-widest">Least
+                            Squares Optimization Visualization</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model 2: Logistic Regression -->
+            <div class="glass-card p-12 lg:p-20 rounded-[4rem] mb-16 border-white/5 reveal-on-scroll">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="lg:order-2">
+                        <div class="flex items-center gap-4 mb-8 text-brand-cyan">
+                            <i class="fas fa-wave-square text-3xl"></i>
+                            <h3 class="text-3xl font-grotesk font-bold text-white">02. Logistic Regression</h3>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed">Despite the name, it is a classification
+                            algorithm. it uses a logistic function to model a binary dependent variable, predicting
+                            probability between 0 and 1.</p>
+
+                        <div class="mb-10">
+                            <h5 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">The Sigmoid
+                                Formula</h5>
+                            <div
+                                class="bg-brand-surface p-6 rounded-2xl border border-brand-cyan/20 font-mono text-brand-cyan text-lg">
+                                P(Y=1) = 1 / (1 + e⁻ᶻ)
+                            </div>
+                            <p class="text-[10px] text-gray-600 mt-3">Where z = β₀ + β₁X₁ + ... + βₙXₙ</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-brand-cyan mt-1.5"></div>
+                                <p class="text-xs text-gray-500"><strong>Logit Transformation:</strong> Maps probability
+                                    to (-∞, +∞) range.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-brand-cyan mt-1.5"></div>
+                                <p class="text-xs text-gray-500"><strong>Decision Threshold:</strong> Usually set at 0.5
+                                    to classify into Class A or B.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SVG Graph: Sigmoid Curve -->
+                    <div class="relative bg-brand-surface/50 rounded-[3rem] p-8 border border-white/5 lg:order-1">
+                        <svg viewBox="0 0 400 300" class="w-full h-auto">
+                            <!-- Axis -->
+                            <line x1="40" y1="260" x2="360" y2="260" stroke="#333" stroke-width="1" />
+                            <line x1="200" y1="260" x2="200" y2="40" stroke="#333" stroke-width="1"
+                                stroke-dasharray="2" />
+                            <!-- Sigmoid Path -->
+                            <path d="M40 250 Q120 250 200 150 T360 50" fill="none" stroke="#22d3ee" stroke-width="4"
+                                stroke-linecap="round" />
+                            <circle cx="200" cy="150" r="5" fill="#22d3ee" />
+                            <text x="215" y="140" fill="#22d3ee" font-family="monospace" font-size="12">Threshold
+                                (0.5)</text>
+                        </svg>
+                        <p class="text-center text-[10px] text-gray-600 mt-4 uppercase font-bold tracking-widest">Binary
+                            Classification Sigmoid Function</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model 3: Support Vector Machine (SVM) -->
+            <div class="glass-card p-12 lg:p-20 rounded-[4rem] mb-16 border-white/5 reveal-on-scroll">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-8 text-indigo-400">
+                            <i class="fas fa-vector-square text-3xl"></i>
+                            <h3 class="text-3xl font-grotesk font-bold text-white">03. Support Vector Machine</h3>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed">SVM finds the optimal hyperplane that maximizes
+                            the margin between different classes. It works great for high-dimensional spaces.</p>
+
+                        <div class="mb-10">
+                            <h5 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">The Hyperplane
+                                Formula</h5>
+                            <div
+                                class="bg-brand-surface p-6 rounded-2xl border border-indigo-400/20 font-mono text-indigo-400 text-lg">
+                                wᵀx + b = 0
+                            </div>
+                            <p class="text-[10px] text-gray-600 mt-3">Objective: Minimize ||w|| while maintaining class
+                                separation.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5"></div>
+                                <p class="text-xs text-gray-500"><strong>Margin Maximization:</strong> Increasing the
+                                    distance to nearest points.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5"></div>
+                                <p class="text-xs text-gray-500"><strong>Kernel Trick:</strong> Projecting data to
+                                    higher dimensions to find linear separation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SVG Graph: SVM -->
+                    <div class="relative bg-brand-surface/50 rounded-[3rem] p-8 border border-white/5">
+                        <svg viewBox="0 0 400 300" class="w-full h-auto">
+                            <!-- Points Class 1 -->
+                            <circle cx="100" cy="100" r="6" fill="#818cf8" />
+                            <circle cx="80" cy="60" r="6" fill="#818cf8" />
+                            <circle cx="130" cy="70" r="6" fill="#818cf8" />
+                            <!-- Points Class 2 -->
+                            <circle cx="280" cy="220" r="6" fill="#38bdf8" />
+                            <circle cx="310" cy="190" r="6" fill="#38bdf8" />
+                            <circle cx="260" cy="250" r="6" fill="#38bdf8" />
+                            <!-- Hyperplane -->
+                            <line x1="80" y1="280" x2="320" y2="40" stroke="#fff" stroke-width="3" />
+                            <!-- Margins -->
+                            <line x1="120" y1="280" x2="360" y2="40" stroke="#fff" stroke-width="1" stroke-dasharray="5"
+                                opacity="0.3" />
+                            <line x1="40" y1="280" x2="280" y2="40" stroke="#fff" stroke-width="1" stroke-dasharray="5"
+                                opacity="0.3" />
+                        </svg>
+                        <p class="text-center text-[10px] text-gray-600 mt-4 uppercase font-bold tracking-widest">
+                            Max-Margin Hyperplane Separation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Models Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- KNN -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-users text-brand-blue"></i> K-Nearest Neighbors
+                    </h4>
+                    <p class="text-[11px] text-gray-500 mb-6">A non-parametric, lazy learning algorithm that classifies
+                        based on proximity.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[10px] text-brand-blue mb-6">
+                        d(p,q) = √(Σ(pᵢ - qᵢ)²)
+                    </div>
+                    <ul class="text-[10px] text-gray-600 space-y-2">
+                        <li>• Metric: Euclidean or Manhattan.</li>
+                        <li>• Parameter: 'k' value (number of neighbors).</li>
+                    </ul>
+                </div>
+
+                <!-- Naive Bayes -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-percentage text-emerald-400"></i> Naive Bayes
+                    </h4>
+                    <p class="text-[11px] text-gray-500 mb-6">Probabilistic classifier using Bayes' Theorem with
+                        independence assumption.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[10px] text-emerald-400 mb-6">
+                        P(c|x) = P(x|c)P(c) / P(x)
+                    </div>
+                    <ul class="text-[10px] text-gray-600 space-y-2">
+                        <li>• Types: Gaussian, Multinomial, Bernoulli.</li>
+                        <li>• Best for: Spam detection & text analysis.</li>
+                    </ul>
+                </div>
+
+                <!-- K-Means -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-object-group text-brand-cyan"></i> K-Means Clustering
+                    </h4>
+                    <p class="text-[11px] text-gray-500 mb-6">Unsupervised grouping of data based on feature similarity
+                        (centroids).</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[10px] text-brand-cyan mb-6">
+                        WCSS = Σ Σ ||xᵢ - μⱼ||²
+                    </div>
+                    <ul class="text-[10px] text-gray-600 space-y-2">
+                        <li>• Goal: Minimize In-cluster variance.</li>
+                        <li>• Method: 'Elbow' technique to find 'k'.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ensemble Powerhouse (Boosting & Bagging) -->
+    <section id="ensemble" class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-cyan font-bold tracking-[0.4em] uppercase mb-4 text-xs">Collective Intelligence
+                </h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">The <span
+                        class="text-gradient">Ensemble</span> Powerhouse</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Why use one model when you can use a council? Ensemble
+                    methods combine multiple models for superior accuracy.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+                <!-- XGBoost -->
+                <div class="glass-card p-12 rounded-[4rem] border-white/5 reveal-on-scroll">
+                    <div class="flex items-center gap-4 mb-8 text-yellow-400">
+                        <i class="fas fa-bolt text-3xl"></i>
+                        <h3 class="text-3xl font-grotesk font-bold text-white">XGBoost</h3>
+                    </div>
+                    <p class="text-gray-400 mb-8 leading-relaxed">Extreme Gradient Boosting. It builds trees
+                        sequentially, where each new tree corrects the errors of the previous ones using gradient
+                        descent optimization.</p>
+
+                    <div class="mb-10">
+                        <h5 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Objective Function
+                        </h5>
+                        <div
+                            class="bg-brand-surface p-6 rounded-2xl border border-yellow-400/20 font-mono text-yellow-500 text-lg">
+                            Obj(θ) = L(θ) + Ω(θ)
+                        </div>
+                        <p class="text-[10px] text-gray-600 mt-3">Where L is Loss function and Ω is Regularization
+                            (penalty for complexity).</p>
+                    </div>
+                </div>
+
+                <!-- Decision Trees -->
+                <div class="glass-card p-12 rounded-[4rem] border-white/5 reveal-on-scroll">
+                    <div class="flex items-center gap-4 mb-8 text-brand-blue">
+                        <i class="fas fa-sitemap text-3xl"></i>
+                        <h3 class="text-3xl font-grotesk font-bold text-white">Decision Trees</h3>
+                    </div>
+                    <p class="text-gray-400 mb-8 leading-relaxed">The atomic unit of ensembles. It splits data based on
+                        feature values to maximize information gain or minimize impurity.</p>
+
+                    <div class="mb-10">
+                        <h5 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Gini Impurity Formula
+                        </h5>
+                        <div
+                            class="bg-brand-surface p-6 rounded-2xl border border-brand-blue/20 font-mono text-brand-blue text-lg">
+                            Gini = 1 - Σ(pᵢ)²
+                        </div>
+                        <p class="text-[10px] text-gray-600 mt-3">Lower Gini means more 'pure' nodes. Entropy is an
+                            alternative with logarithmic logic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AdaBoost -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-weight-hanging text-rose-400"></i> AdaBoost
+                    </h4>
+                    <p class="text-[11px] text-gray-500 mb-6">Adaptive Boosting. It increases the weights of
+                        misclassified samples so the next 'weak learner' focuses on them.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[10px] text-rose-400 mb-6">
+                        α = 0.5 * ln((1-ε)/ε)
+                    </div>
+                </div>
+
+                <!-- Random Forest -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-layer-group text-emerald-400"></i> Random Forest
+                    </h4>
+                    <p class="text-[11px] text-gray-500 mb-6">Parallel bagging ensemble. Reduces variance by averaging
+                        uncorrelated trees trained on feature subsets.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[10px] text-emerald-400 mb-6">
+                        Var(Final) = ρσ²/n + (1-ρ)σ²
+                    </div>
+                </div>
+
+                <!-- Gradient Boosting -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-stairs text-indigo-400"></i> LightGBM / CatBoost
+                    </h4>
+                    <p class="text-[11px] text-gray-500 mb-6">High-performance implementations for tabular data,
+                        handling categorical features & leaf-wise growth.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[10px] text-indigo-400 mb-6">
+                        y_new = y_old + α * Gradient
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Selection Flowchart (SVG Visualization) -->
+    <section id="flowchart" class="py-32 bg-brand-dark overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-grotesk font-bold text-white mb-6">The ML <span
+                        class="text-brand-blue">Decision Tree</span></h2>
+                <p class="text-gray-400">Which model should you choose? Follow the logic.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto glass-card p-10 lg:p-20 rounded-[4rem] border-white/5 relative">
+                <svg viewBox="0 0 800 500" class="w-full h-auto">
+                    <!-- Start Point -->
+                    <rect x="350" y="20" width="100" height="40" rx="10" fill="#3b82f6" />
+                    <text x="400" y="45" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">START
+                        HERE</text>
+
+                    <!-- Branch 1 -->
+                    <line x1="400" y1="60" x2="400" y2="100" stroke="#333" stroke-width="2" />
+                    <rect x="340" y="100" width="120" height="50" rx="8" fill="#1e293b" stroke="#333" />
+                    <text x="400" y="130" text-anchor="middle" fill="#fff" font-size="10">Do you have labels?</text>
+
+                    <!-- YES Branch -->
+                    <line x1="340" y1="125" x2="150" y2="125" stroke="#333" stroke-width="2" />
+                    <line x1="150" y1="125" x2="150" y2="180" stroke="#333" stroke-width="2" />
+                    <text x="250" y="120" fill="#10b981" font-size="10" font-weight="bold">YES</text>
+
+                    <rect x="80" y="180" width="140" height="50" rx="8" fill="#10b981/10" stroke="#10b981"
+                        stroke-dasharray="4" />
+                    <text x="150" y="210" text-anchor="middle" fill="#10b981" font-size="10"
+                        font-weight="bold">SUPERVISED</text>
+
+                    <!-- Supervised Split (Classification vs Regression) -->
+                    <line x1="150" y1="230" x2="80" y2="280" stroke="#10b981" stroke-width="1" />
+                    <line x1="150" y1="230" x2="220" y2="280" stroke="#10b981" stroke-width="1" />
+
+                    <text x="60" y="300" text-anchor="middle" fill="#fff" font-size="9">Classification</text>
+                    <text x="240" y="300" text-anchor="middle" fill="#fff" font-size="9">Regression</text>
+
+                    <!-- NO Branch -->
+                    <line x1="460" y1="125" x2="650" y2="125" stroke="#333" stroke-width="2" />
+                    <line x1="650" y1="125" x2="650" y2="180" stroke="#333" stroke-width="2" />
+                    <text x="550" y="120" fill="#ef4444" font-size="10" font-weight="bold">NO</text>
+
+                    <rect x="580" y="180" width="140" height="50" rx="8" fill="#ef4444/10" stroke="#ef4444"
+                        stroke-dasharray="4" />
+                    <text x="650" y="210" text-anchor="middle" fill="#ef4444" font-size="10"
+                        font-weight="bold">UNSUPERVISED</text>
+
+                    <!-- Models Footer -->
+                    <text x="150" y="450" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="bold">XGBoost,
+                        SVM, RF</text>
+                    <text x="650" y="450" text-anchor="middle" fill="#f43f5e" font-size="12" font-weight="bold">K-Means,
+                        PCA, DBSCAN</text>
+                </svg>
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent pointer-events-none">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Neural Architecture Hub (Deep Learning Catalog) -->
+    <section id="nn-hub" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">Architecting Intelligence
+                </h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">Neural <span
+                        class="text-gradient">Architectures</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">From spatial patterns to sequential flows, explore the
+                    blueprints of modern AI.</p>
+            </div>
+
+            <div class="mb-20">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop"
+                    class="w-full h-[400px] object-cover rounded-[3rem] border border-white/5 opacity-60"
+                    alt="Neural Network Nodes">
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- CNN -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <div
+                        class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 mb-6">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">CNN (Convolutional)</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Designed for grid-like data (images). Uses
+                        convolutional filters to extract spatial hierarchy of features.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[9px] text-blue-400 mb-4">
+                        (f * g)(t) = ∫ f(τ)g(t-τ)dτ
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] uppercase font-bold text-gray-600">
+                        <span>Max Pooling</span>
+                        <span>Stride 2</span>
+                    </div>
+                </div>
+
+                <!-- RNN / Transformer -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll"
+                    style="transition-delay: 0.1s">
+                    <div
+                        class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 mb-6">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">Transformers (Attention)</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">The engine behind LLMs. Uses Self-Attention
+                        mechanisms to process data in parallel and capture long-range dependencies.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[9px] text-indigo-400 mb-4">
+                        Attention(Q,K,V) = softmax(QKᵀ/√dₖ)V
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] uppercase font-bold text-gray-600">
+                        <span>Tokens</span>
+                        <span>Multi-Head</span>
+                    </div>
+                </div>
+
+                <!-- GANs -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll"
+                    style="transition-delay: 0.2s">
+                    <div
+                        class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-400 mb-6">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">GANs (Generative)</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Two networks (Generator & Discriminator)
+                        compete in a game theory framework to create hyper-realistic synthetic data.</p>
+                    <div class="bg-black/20 p-4 rounded-xl font-mono text-[9px] text-rose-400 mb-4">
+                        min_G max_D V(D,G)
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] uppercase font-bold text-gray-600">
+                        <span>Adversarial</span>
+                        <span>Sampling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Metrics Lab (Model Evaluation) -->
+    <section id="metrics" class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-grotesk font-bold text-white text-center mb-10 text-gradient">The Evaluation
+                Metrics Lab</h2>
+            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-20 text-sm">Quantifying intelligence requires
+                precise metrics. We don't just look at accuracy; we analyze precision, recall, and error sensitivity.
+            </p>
+
+            <div class="mb-20">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop"
+                    class="w-full h-[400px] object-cover rounded-[3rem] border border-white/5 shadow-2xl opacity-80"
+                    alt="Data Analytics">
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Classification Metrics -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h3 class="text-2xl font-bold text-white mb-8 border-b border-white/5 pb-4">Classification Metrics
+                    </h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span
+                                    class="text-brand-cyan text-xs font-bold uppercase tracking-widest">Precision</span>
+                                <span class="text-white font-mono text-xs">TP / (TP + FP)</span>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Accuracy of positive predictions. How many of
+                                the predicted positives are actually positive?</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-brand-blue text-xs font-bold uppercase tracking-widest">Recall
+                                    (Sensitivity)</span>
+                                <span class="text-white font-mono text-xs">TP / (TP + FN)</span>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Ability to find all positive instances. How many
+                                of the actual positives did we capture?</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span
+                                    class="text-indigo-400 text-xs font-bold uppercase tracking-widest">F1-Score</span>
+                                <span class="text-white font-mono text-xs">2 * (P * R) / (P + R)</span>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Harmonic mean of Precision and Recall. Best for
+                                imbalanced datasets.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regression Metrics -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <h3 class="text-2xl font-bold text-white mb-8 border-b border-white/5 pb-4">Regression Metrics</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest">MSE</span>
+                                <span class="text-white font-mono text-xs">1/n Σ(y - ŷ)²</span>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Mean Squared Error. Highly penalizes large
+                                errors.</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-orange-400 text-xs font-bold uppercase tracking-widest">MAE</span>
+                                <span class="text-white font-mono text-xs">1/n Σ|y - ŷ|</span>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Mean Absolute Error. More robust to outliers
+                                than MSE.</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-yellow-400 text-xs font-bold uppercase tracking-widest">R²
+                                    (R-Squared)</span>
+                                <span class="text-white font-mono text-xs">1 - (SSR/SST)</span>
+                            </div>
+                            <p class="text-[10px] text-gray-500 italic">Coefficient of Determination. Percentage of
+                                variance captured by the model.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Deep Neural Architectures Section -->
+    <section id="architectures" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-32">
+                <div class="reveal-left">
+                    <h6 class="text-brand-cyan font-bold tracking-[0.2em] uppercase mb-4 text-xs">Innovation Hub</h6>
+                    <h2 class="text-5xl font-grotesk font-bold text-white mb-8">Neural Network <span
+                            class="text-gradient">Architectures</span></h2>
+                    <p class="text-gray-400 mb-10 leading-relaxed">Moving beyond simple ML into Deep Learning. These
+                        architectures are designed to solve high-resolution problems like video generation, language
+                        translation, and autonomous driving.</p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="p-6 bg-brand-surface border border-white/5 rounded-3xl hover:border-brand-blue transition-all">
+                            <span class="text-brand-blue font-bold text-lg mb-2 block">CNN</span>
+                            <h5 class="text-white font-bold text-sm mb-2">Computer Vision</h5>
+                            <p class="text-[10px] text-gray-500">Used for object detection, facial recognition, and
+                                medical imaging.</p>
+                        </div>
+                        <div
+                            class="p-6 bg-brand-surface border border-white/5 rounded-3xl hover:border-brand-cyan transition-all">
+                            <span class="text-brand-cyan font-bold text-lg mb-2 block">RNN/LSTM</span>
+                            <h5 class="text-white font-bold text-sm mb-2">Sequential Data</h5>
+                            <p class="text-[10px] text-gray-500">Time series forecasting and natural language
+                                processing.</p>
+                        </div>
+                        <div
+                            class="p-6 bg-brand-surface border border-white/5 rounded-3xl hover:border-indigo-500 transition-all">
+                            <span class="text-indigo-400 font-bold text-lg mb-2 block">GANs</span>
+                            <h5 class="text-white font-bold text-sm mb-2">Generative Models</h5>
+                            <p class="text-[10px] text-gray-500">Creating synthetic data, deepfakes, and artistic
+                                generations.</p>
+                        </div>
+                        <div
+                            class="p-6 bg-brand-surface border border-white/5 rounded-3xl hover:border-emerald-500 transition-all">
+                            <span class="text-emerald-400 font-bold text-lg mb-2 block">Transformers</span>
+                            <h5 class="text-white font-bold text-sm mb-2">LLM Foundation</h5>
+                            <p class="text-[10px] text-gray-500">Powering ChatGPT, BERT, and advanced translation
+                                engines.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Architecture Visual Mockup -->
+                <div class="reveal-right relative">
+                    <div class="glass-card p-10 rounded-[3rem] border-brand-blue/20">
+                        <div class="space-y-8">
+                            <!-- Input Nodes -->
+                            <div class="flex justify-center gap-6">
+                                <div class="w-4 h-4 rounded-full bg-brand-blue blur-[2px]"></div>
+                                <div class="w-4 h-4 rounded-full bg-brand-blue blur-[2px]"></div>
+                                <div class="w-4 h-4 rounded-full bg-brand-blue blur-[2px]"></div>
+                                <div class="w-4 h-4 rounded-full bg-brand-blue blur-[2px]"></div>
+                            </div>
+                            <!-- Connector Lines (Visual) -->
+                            <div class="h-32 flex justify-center items-center">
+                                <svg width="100%" height="100%" viewBox="0 0 400 150">
+                                    <path d="M100 0 L200 150" stroke="rgba(0,97,255,0.1)" stroke-width="1" />
+                                    <path d="M150 0 L200 150" stroke="rgba(0,97,255,0.1)" stroke-width="1" />
+                                    <path d="M250 0 L200 150" stroke="rgba(0,97,255,0.1)" stroke-width="1" />
+                                    <path d="M300 0 L200 150" stroke="rgba(0,97,255,0.1)" stroke-width="1" />
+                                </svg>
+                            </div>
+                            <!-- Hidden Nodes -->
+                            <div class="flex justify-center gap-8">
+                                <div class="w-6 h-6 rounded-full bg-brand-cyan animate-pulse"></div>
+                                <div class="w-6 h-6 rounded-full bg-brand-cyan animate-pulse delay-75"></div>
+                                <div class="w-6 h-6 rounded-full bg-brand-cyan animate-pulse delay-150"></div>
+                            </div>
+                            <!-- Output Node -->
+                            <div class="flex justify-center mt-12">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center justify-center">
+                                    <i class="fas fa-microchip text-brand-dark text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-[10px] text-gray-600 mt-10 font-bold tracking-widest uppercase">
+                            Multi-layer Perceptron (MLP) Flow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h6 class="text-brand-blue font-bold tracking-[0.2em] uppercase mb-4 text-xs">Proven Intelligence
+                    </h6>
+                    <h2 class="text-5xl font-grotesk font-bold text-white mb-2">Real-world <span
+                            class="text-gradient">Impact</span></h2>
+                    <p class="text-gray-400">How Machine Learning transforms diverse industries today.</p>
+                </div>
+                <a href="#"
+                    class="text-brand-cyan font-bold flex items-center gap-2 hover:translate-x-2 transition-all">View
+                    50+ Case Studies <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="mb-20">
+                <img src="https://images.unsplash.com/photo-1593349480506-8433634cdcbe?q=80&w=2000&auto=format&fit=crop"
+                    class="w-full h-[450px] object-cover rounded-[4rem] border border-white/5 grayscale hover:grayscale-0 transition-all duration-1000"
+                    alt="AI Industry Application">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Case 1: Healthcare -->
+                <div class="group reveal-on-scroll">
+                    <div class="relative rounded-[2.5rem] overflow-hidden mb-8 h-[300px]">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-8">
+                            <span
+                                class="inline-block px-3 py-1 bg-brand-blue text-white text-[10px] font-bold rounded-lg mb-2">HEALTHCARE</span>
+                            <h3 class="text-2xl font-bold text-white">Cancer Detection via CNN</h3>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <p class="text-gray-400 text-sm mb-6">Implementing deep learning models to identify malignant
+                            tumors in MRI scans with 99.4% accuracy, outperforming human radiologists in early-stage
+                            detection speed.</p>
+                        <div class="flex gap-6">
+                            <div>
+                                <h5 class="text-white font-bold text-lg">99.4%</h5>
+                                <p class="text-[10px] text-gray-600 uppercase font-bold tracking-widest">Accuracy</p>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-lg">-60%</h5>
+                                <p class="text-[10px] text-gray-600 uppercase font-bold tracking-widest">Diag. Time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Finance -->
+                <div class="group reveal-on-scroll" style="transition-delay: 0.1s">
+                    <div class="relative rounded-[2.5rem] overflow-hidden mb-8 h-[300px]">
+                        <img src="https://images.unsplash.com/photo-1611974717483-9b939c85112a?auto=format&fit=crop&q=80&w=1200"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-8">
+                            <span
+                                class="inline-block px-3 py-1 bg-indigo-500 text-white text-[10px] font-bold rounded-lg mb-2">FINANCE</span>
+                            <h3 class="text-2xl font-bold text-white">Real-time Fraud Shield</h3>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <p class="text-gray-400 text-sm mb-6">Using Isolation Forests and Autoencoders to detect
+                            fraudulent credit card transactions in under 20ms, saving banks billions in unauthorized
+                            charges annually.</p>
+                        <div class="flex gap-6">
+                            <div>
+                                <h5 class="text-white font-bold text-lg">$2.4B</h5>
+                                <p class="text-[10px] text-gray-600 uppercase font-bold tracking-widest">Daily Savings
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-lg">
+                                    < 20ms</h5>
+                                        <p class="text-[10px] text-gray-600 uppercase font-bold tracking-widest">
+                                            Latencey</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MLOps & Project Life Cycle Section -->
+    <section id="mlops" class="py-32 bg-brand-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2 reveal-left">
+                    <h6 class="text-brand-cyan font-bold tracking-[0.2em] uppercase mb-4 text-xs">Production Grade</h6>
+                    <h2 class="text-5xl font-grotesk font-bold text-white mb-6">Beyond the Model: <span
+                            class="text-gradient">MLOps</span></h2>
+                    <p class="text-gray-400 mb-10 leading-relaxed">Training a model is only 10% of the work. Real-world
+                        solutions require MLOps—the union of Machine Learning, DevOps, and Data Engineering to build
+                        robust, scalable product environments.</p>
+
+                    <div class="space-y-6">
+                        <div class="p-6 glass-card rounded-2xl flex items-center gap-6">
+                            <div
+                                class="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white text-sm uppercase">CI/CD/CT</h5>
+                                <p class="text-xs text-gray-500">Continuous Integration, Delivery, and Training for
+                                    automatic model updates.</p>
+                            </div>
+                        </div>
+                        <div class="p-6 glass-card rounded-2xl flex items-center gap-6">
+                            <div
+                                class="w-12 h-12 bg-brand-cyan/10 rounded-full flex items-center justify-center text-brand-cyan">
+                                <i class="fas fa-binoculars"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white text-sm uppercase">Model Monitoring</h5>
+                                <p class="text-xs text-gray-500">Tracking data drift and prediction degradation in
+                                    real-time production.</p>
+                            </div>
+                        </div>
+                        <div class="p-6 glass-card rounded-2xl flex items-center gap-6">
+                            <div
+                                class="w-12 h-12 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400">
+                                <i class="fas fa-boxes-stacked"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white text-sm uppercase">Containerization</h5>
+                                <p class="text-xs text-gray-500">Deploying models as microservices using Docker and
+                                    Kubernetes orchestration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interactive Life Cycle Graphic -->
+                <div class="lg:w-1/2 reveal-right">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="p-8 bg-brand-surface border border-white/5 rounded-[2rem] text-center flex flex-col items-center justify-center min-h-[180px]">
+                            <i class="fas fa-database text-brand-blue text-4xl mb-4"></i>
+                            <h6 class="text-white text-xs font-bold uppercase">Data Lake</h6>
+                        </div>
+                        <div
+                            class="p-8 bg-brand-surface border border-white/5 rounded-[2rem] text-center flex flex-col items-center justify-center min-h-[180px]">
+                            <i class="fas fa-code-branch text-brand-cyan text-4xl mb-4"></i>
+                            <h6 class="text-white text-xs font-bold uppercase">Version Control</h6>
+                        </div>
+                        <div
+                            class="p-8 bg-brand-surface border border-white/5 rounded-[2rem] text-center flex flex-col items-center justify-center min-h-[180px]">
+                            <i class="fas fa-microchip text-indigo-500 text-4xl mb-4"></i>
+                            <h6 class="text-white text-xs font-bold uppercase">Training Cluster</h6>
+                        </div>
+                        <div
+                            class="p-8 bg-brand-surface border border-white/5 rounded-[2rem] text-center flex flex-col items-center justify-center min-h-[180px]">
+                            <i class="fas fa-cloud-upload text-emerald-500 text-4xl mb-4"></i>
+                            <h6 class="text-white text-xs font-bold uppercase">REST API Serving</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glossay & Cheat Sheet Section -->
+    <section id="glossary" class="py-32 bg-brand-surface/10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-4xl font-grotesk font-bold text-white mb-20 text-gradient">The ML Dictionary
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="space-y-8">
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-brand-blue font-bold text-sm mb-2">Overfitting</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">When a model learns the training data too
+                            well, including the noise, and fails to generalize to new, unseen data.</p>
+                    </div>
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-brand-cyan font-bold text-sm mb-2">Underfitting</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">When the model is too simple to capture the
+                            underlying pattern of the data, resulting in poor training and testing performance.</p>
+                    </div>
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-indigo-400 font-bold text-sm mb-2">Bias-Variance Tradeoff</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">The balance between the error introduced by
+                            approximating a real-world problem with a simplified model and the model's sensitivity to
+                            small fluctuations in the training set.</p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-emerald-400 font-bold text-sm mb-2">Regularization (L1/L2)</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">Techniques like Lasso (L1) and Ridge (L2)
+                            regression that add a penalty to the loss function to prevent overfitting.</p>
+                    </div>
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-orange-400 font-bold text-sm mb-2">Hyperparameters</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">External configuration variables that are
+                            set before the training process begins, such as the learning rate or number of neighbors.
+                        </p>
+                    </div>
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-pink-500 font-bold text-sm mb-2">Epochs vs Batch Size</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">An epoch is one complete pass through the
+                            entire dataset, while batch size is the number of samples processed before the model updates
+                            its internal parameters.</p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-yellow-400 font-bold text-sm mb-2">Precision vs Recall</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">Precision is the percentage of correct
+                            positive predictions, while recall is the percentage of all actual positives that were
+                            correctly identified.</p>
+                    </div>
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-red-500 font-bold text-sm mb-2">F1 Score</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">The harmonic mean of precision and recall,
+                            providing a single metric that balances both for uneven class distributions.</p>
+                    </div>
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-purple-500 font-bold text-sm mb-2">Transfer Learning</h6>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">Taking a pre-trained model (like ResNet)
+                            and fine-tuning it on a new task, drastically reducing training time and data requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 p-8 glass-card rounded-[3rem] border-brand-blue/10 reveal-on-scroll">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-16 h-16 bg-brand-blue/20 rounded-2xl flex items-center justify-center text-brand-blue text-2xl">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Download Ultimate Cheat Sheet</h4>
+                            <p class="text-xs text-gray-600 font-bold">PDF Format • 50+ Formulas • Version 2026.1</p>
+                        </div>
+                    </div>
+                    <button
+                        class="px-10 py-4 bg-brand-blue text-white rounded-2xl font-bold hover:translate-y-[-5px] transition-all">Download
+                        Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Mastery Timeline -->
+    <section id="roadmap" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-cyan font-bold tracking-[0.4em] uppercase mb-4 text-xs">The Journey</h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-4">Mastery <span
+                        class="text-gradient">Timeline</span></h2>
+                <p class="text-gray-400">From Curiosity to Architect—the detailed roadmap.</p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto pl-10 md:pl-0">
+                <!-- Center Line -->
+                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 md:-ml-px w-[1px] bg-white/10"></div>
+
+                <!-- Stage 1 -->
+                <div class="relative mb-32 group">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-20 md:text-right reveal-left">
+                            <span
+                                class="inline-block px-4 py-1.5 bg-brand-blue/10 border border-brand-blue/20 text-brand-blue rounded-xl text-[10px] font-bold mb-4 tracking-widest uppercase">Months
+                                1-3</span>
+                            <h4 class="text-3xl font-grotesk font-bold text-white mb-4">Phase: The Foundation</h4>
+                            <ul class="space-y-4 text-sm text-gray-500 md:flex md:flex-col md:items-end">
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-blue"></i>
+                                    Advanced Python for Data Science</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-blue"></i>
+                                    NumPy & Pandas Data Manipulation</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-blue"></i>
+                                    Probability & Descriptive Statistics</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-blue"></i>
+                                    Matplotlib/Seaborn Data Visualization</li>
+                            </ul>
+                        </div>
+                        <div
+                            class="absolute left-[-20px] md:left-1/2 top-0 md:-ml-5 w-10 h-10 rounded-full border-4 border-brand-dark bg-brand-blue z-20 group-hover:scale-125 transition-transform">
+                        </div>
+                        <div class="md:w-1/2 pl-20 hidden md:block">
+                            <div
+                                class="p-8 glass-card rounded-[2rem] border-brand-blue/20 min-h-[150px] flex items-center justify-center">
+                                <i class="fas fa-cubes-stacked text-5xl text-gray-800"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="relative mb-32 group">
+                    <div class="md:flex items-center flex-row-reverse">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pl-20 reveal-right">
+                            <span
+                                class="inline-block px-4 py-1.5 bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan rounded-xl text-[10px] font-bold mb-4 tracking-widest uppercase">Months
+                                4-7</span>
+                            <h4 class="text-3xl font-grotesk font-bold text-white mb-4">Phase: Classical ML</h4>
+                            <ul class="space-y-4 text-sm text-gray-500">
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-cyan"></i>
+                                    Linear & Logistic Regression (Math Proofs)</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-cyan"></i>
+                                    Decision Trees & Random Forests</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-cyan"></i>
+                                    Feature Selection & Optimization</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-cyan"></i>
+                                    Bias-Variance Tradeoff Balancing</li>
+                            </ul>
+                        </div>
+                        <div
+                            class="absolute left-[-20px] md:left-1/2 top-0 md:-ml-5 w-10 h-10 rounded-full border-4 border-brand-dark bg-brand-cyan z-20 group-hover:scale-125 transition-transform">
+                        </div>
+                        <div class="md:w-1/2 pr-20 hidden md:block">
+                            <div
+                                class="p-8 glass-card rounded-[2rem] border-brand-cyan/20 min-h-[150px] flex items-center justify-center">
+                                <i class="fas fa-brain text-5xl text-gray-800"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="relative mb-32 group">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-20 md:text-right reveal-left">
+                            <span
+                                class="inline-block px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-xl text-[10px] font-bold mb-4 tracking-widest uppercase">Months
+                                8-12</span>
+                            <h4 class="text-3xl font-grotesk font-bold text-white mb-4">Phase: Deep Intelligence</h4>
+                            <ul class="space-y-4 text-sm text-gray-500 md:flex md:flex-col md:items-end">
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-400"></i>
+                                    Deep Neural Networks using PyTorch/TensorFlow</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-400"></i>
+                                    Computer Vision & NLP Advanced Tracking</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-400"></i>
+                                    Generative AI & Transformer Models</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-check-circle text-indigo-400"></i>
+                                    Reinforcement Learning Algorithms</li>
+                            </ul>
+                        </div>
+                        <div
+                            class="absolute left-[-20px] md:left-1/2 top-0 md:-ml-5 w-10 h-10 rounded-full border-4 border-brand-dark bg-indigo-500 z-20 group-hover:scale-125 transition-transform">
+                        </div>
+                        <div class="md:w-1/2 pl-20 hidden md:block">
+                            <div
+                                class="p-8 glass-card rounded-[2rem] border-indigo-500/20 min-h-[150px] flex items-center justify-center">
+                                <i class="fas fa-microchip text-5xl text-gray-800"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Academic Section -->
+    <section id="faq" class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-4xl font-grotesk font-bold text-white mb-20">Frequently Asked <span
+                    class="text-brand-blue">Academic</span> Questions</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- FAQ 1 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 reveal-on-scroll">
+                    <h5 class="flex justify-between items-center text-white font-bold mb-4 cursor-pointer">
+                        What is the difference between AI, ML, and Deep Learning?
+                        <i class="fas fa-plus text-xs text-brand-blue"></i>
+                    </h5>
+                    <p class="text-sm text-gray-500 leading-relaxed">AI is the broad field of creating intelligent
+                        systems. ML is a subset of AI that uses data to learn. Deep Learning is a subset of ML based on
+                        neural networks with multiple layers (hence 'deep').</p>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 reveal-on-scroll">
+                    <h5 class="flex justify-between items-center text-white font-bold mb-4 cursor-pointer">
+                        Do I need a PhD to work in Machine Learning?
+                        <i class="fas fa-plus text-xs text-brand-blue"></i>
+                    </h5>
+                    <p class="text-sm text-gray-500 leading-relaxed">No. While a PhD is valuable for fundamental
+                        research, the majority of ML engineering and data science roles are accessible via Bachelor's or
+                        Master's degrees and a strong portfolio of projects.</p>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 reveal-on-scroll">
+                    <h5 class="flex justify-between items-center text-white font-bold mb-4 cursor-pointer">
+                        Which is better for ML: Python or R?
+                        <i class="fas fa-plus text-xs text-brand-blue"></i>
+                    </h5>
+                    <p class="text-sm text-gray-500 leading-relaxed">Python is the de facto industry standard due to its
+                        versatile ecosystem (Scikit-learn, TensorFlow, PyTorch) and its ability to integrate with
+                        production software. R is exceptional for pure statistical research.</p>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 reveal-on-scroll">
+                    <h5 class="flex justify-between items-center text-white font-bold mb-4 cursor-pointer">
+                        What is 'Data Drift' in MLOps?
+                        <i class="fas fa-plus text-xs text-brand-blue"></i>
+                    </h5>
+                    <p class="text-sm text-gray-500 leading-relaxed">Data drift occurs when the statistical properties
+                        of the input data change over time, causing the model's accuracy to degrade. MLOps systems
+                        detect this and trigger re-training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Portal CTA Section -->
+    <section class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-blue/5"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-5xl lg:text-7xl font-grotesk font-bold text-white mb-10 leading-tight">Ready to Start Your
+                <br /> <span class="text-gradient underline decoration-brand-cyan">AI Journey?</span>
+            </h2>
+            <p class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">Join 150,000+ students already learning the future
+                of technology with us. Access full curriculum, code, and certificates.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
+                <button
+                    class="w-full py-5 bg-brand-blue text-white rounded-[2rem] font-bold text-lg hover:shadow-[0_0_30px_rgba(0,97,255,0.4)] transition-all">Begin
+                    Enrollment</button>
+                <button
+                    class="w-full py-5 border border-white/10 glass-card text-white rounded-[2rem] font-bold text-lg hover:bg-white/5 transition-all">View
+                    All Modules</button>
+            </div>
+
+            <!-- Floating Success Stats -->
+            <div class="flex flex-wrap justify-center gap-10 mt-20 border-t border-white/5 pt-20">
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold text-white mb-2">12k+</h3>
+                    <p class="text-xs text-gray-600 font-bold uppercase tracking-widest">Alumni at Google</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold text-white mb-2">94%</h3>
+                    <p class="text-xs text-gray-600 font-bold uppercase tracking-widest">Success Rate</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold text-white mb-2">$145k</h3>
+                    <p class="text-xs text-gray-600 font-bold uppercase tracking-widest">Avg. Graduate Salary</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Project Portfolio (Hands-on Learning) -->
+    <section id="portfolio" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">Hands-on Lab</h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">Mastery <span
+                        class="text-gradient">Projects</span></h2>
+                <p class="text-gray-400">Build these to solidify your understanding and boost your resume.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Project 1 -->
+                <div class="glass-card overflow-hidden rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <div
+                        class="h-48 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 flex items-center justify-center">
+                        <i class="fas fa-home text-5xl text-brand-blue"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-xl font-bold text-white">House Price Predictor</h4>
+                            <span class="text-[10px] text-brand-cyan font-bold uppercase">Beginner</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-6 leading-relaxed">Predict real estate prices using Linear
+                            Regression and Feature Engineering on the Boston/Ames dataset.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-white/5 p-3 rounded-xl text-center">
+                                <span class="text-[9px] text-gray-600 block mb-1">ALGO</span>
+                                <span class="text-[10px] text-white font-bold">XGBoost</span>
+                            </div>
+                            <div class="bg-white/5 p-3 rounded-xl text-center">
+                                <span class="text-[9px] text-gray-600 block mb-1">ACCURACY</span>
+                                <span class="text-[10px] text-white font-bold">92%</span>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full py-3 bg-white/5 rounded-xl text-xs font-bold text-gray-400 hover:bg-brand-blue hover:text-white transition-all">View
+                            Code Source</button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card overflow-hidden rounded-[3rem] border-white/5 reveal-on-scroll"
+                    style="transition-delay: 0.1s">
+                    <div
+                        class="h-48 bg-gradient-to-br from-purple-600/20 to-pink-400/20 flex items-center justify-center">
+                        <i class="fas fa-dog text-5xl text-purple-400"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-xl font-bold text-white">X-Vision Image Classifier</h4>
+                            <span class="text-[10px] text-purple-400 font-bold uppercase">Intermediate</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-6 leading-relaxed">Classification of objects and animals
+                            using Transfer Learning with MobileNetV2 architecture in Keras.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-white/5 p-3 rounded-xl text-center">
+                                <span class="text-[9px] text-gray-600 block mb-1">ALGO</span>
+                                <span class="text-[10px] text-white font-bold">CNN</span>
+                            </div>
+                            <div class="bg-white/5 p-3 rounded-xl text-center">
+                                <span class="text-[9px] text-gray-600 block mb-1">GPU TIME</span>
+                                <span class="text-[10px] text-white font-bold">~4 Hours</span>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full py-3 bg-white/5 rounded-xl text-xs font-bold text-gray-400 hover:bg-purple-600 hover:text-white transition-all">View
+                            Code Source</button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card overflow-hidden rounded-[3rem] border-white/5 reveal-on-scroll"
+                    style="transition-delay: 0.2s">
+                    <div
+                        class="h-48 bg-gradient-to-br from-emerald-600/20 to-teal-400/20 flex items-center justify-center">
+                        <i class="fas fa-comments text-5xl text-emerald-400"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-xl font-bold text-white">Sentiment Analyzer Pro</h4>
+                            <span class="text-[10px] text-emerald-400 font-bold uppercase">Advanced</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-6 leading-relaxed">Analyzing Twitter/Reddit data to detect
+                            emotional tone using Transformers (BERT) and fine-tuning.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-white/5 p-3 rounded-xl text-center">
+                                <span class="text-[9px] text-gray-600 block mb-1">ALGO</span>
+                                <span class="text-[10px] text-white font-bold">NLP (BERT)</span>
+                            </div>
+                            <div class="bg-white/5 p-3 rounded-xl text-center">
+                                <span class="text-[9px] text-gray-600 block mb-1">VOCAB</span>
+                                <span class="text-[10px] text-white font-bold">2M+ Words</span>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full py-3 bg-white/5 rounded-xl text-xs font-bold text-gray-400 hover:bg-emerald-600 hover:text-white transition-all">View
+                            Code Source</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Algorithm Comparison Matrix -->
+    <section id="comparison" class="py-32 bg-brand-surface/10 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-4xl font-grotesk font-bold text-white mb-20">Algorithm <span
+                    class="text-brand-cyan">Decision Matrix</span></h2>
+
+            <div class="overflow-x-auto glass-card rounded-[3rem] p-4 lg:p-10 border-white/5 relative">
+                <table class="w-full text-left border-collapse min-w-[800px]">
+                    <thead>
+                        <tr class="border-b border-white/10">
+                            <th class="py-6 px-4 text-xs font-bold text-gray-600 uppercase tracking-widest">Algorithm
+                            </th>
+                            <th class="py-6 px-4 text-xs font-bold text-gray-600 uppercase tracking-widest text-center">
+                                Training Speed</th>
+                            <th class="py-6 px-4 text-xs font-bold text-gray-600 uppercase tracking-widest text-center">
+                                Accuracy</th>
+                            <th class="py-6 px-4 text-xs font-bold text-gray-600 uppercase tracking-widest text-center">
+                                Interpretability</th>
+                            <th class="py-6 px-4 text-xs font-bold text-gray-600 uppercase tracking-widest text-center">
+                                Memory Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition-all">
+                            <td class="py-6 px-4 text-white font-bold">Linear Regression</td>
+                            <td class="py-6 px-4 text-center"><span
+                                    class="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-[10px] font-bold">EXTREME</span>
+                            </td>
+                            <td class="py-6 px-4 text-center text-gray-500">Moderate</td>
+                            <td class="py-6 px-4 text-center text-emerald-400 font-bold">Highest</td>
+                            <td class="py-6 px-4 text-center text-gray-500">Very Low</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition-all">
+                            <td class="py-6 px-4 text-white font-bold">SVM (Kernel)</td>
+                            <td class="py-6 px-4 text-center text-orange-400 font-bold">Slow</td>
+                            <td class="py-6 px-4 text-center text-white">Very High</td>
+                            <td class="py-6 px-4 text-center text-gray-500">Low</td>
+                            <td class="py-6 px-4 text-center text-orange-400 font-bold">High</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition-all">
+                            <td class="py-6 px-4 text-white font-bold">Random Forest</td>
+                            <td class="py-6 px-4 text-center text-yellow-400 font-bold">Moderate</td>
+                            <td class="py-6 px-4 text-center text-white">High</td>
+                            <td class="py-6 px-4 text-center text-yellow-400 font-bold">Moderate</td>
+                            <td class="py-6 px-4 text-center text-gray-500">Moderate</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition-all">
+                            <td class="py-6 px-4 text-white font-bold">XGBoost</td>
+                            <td class="py-6 px-4 text-center text-yellow-400 font-bold">Moderate</td>
+                            <td class="py-6 px-4 text-center text-brand-cyan font-bold">Highest</td>
+                            <td class="py-6 px-4 text-center text-gray-500">Low</td>
+                            <td class="py-6 px-4 text-center text-gray-500">Moderate</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition-all">
+                            <td class="py-6 px-4 text-white font-bold">Neural Networks</td>
+                            <td class="py-6 px-4 text-center text-red-500 font-bold">Very Slow</td>
+                            <td class="py-6 px-4 text-center text-brand-cyan font-bold">Extreme</td>
+                            <td class="py-6 px-4 text-center text-red-500 font-bold">None (Blackbox)</td>
+                            <td class="py-6 px-4 text-center text-red-500 font-bold">Very High</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Tool Stack -->
+    <section id="stack" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-grotesk font-bold text-white mb-20 text-center">Industrial <span
+                    class="text-brand-blue">Toolchain</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div
+                    class="p-6 bg-brand-surface border border-white/5 rounded-2xl flex flex-col items-center group hover:border-brand-blue transition-all">
+                    <i class="fab fa-python text-3xl text-blue-400 mb-4 group-hover:scale-110 transition-all"></i>
+                    <span class="text-[10px] font-bold text-gray-500">PYTHON</span>
+                </div>
+                <div
+                    class="p-6 bg-brand-surface border border-white/5 rounded-2xl flex flex-col items-center group hover:border-brand-cyan transition-all">
+                    <i class="fas fa-brain text-3xl text-brand-cyan mb-4 group-hover:scale-110 transition-all"></i>
+                    <span class="text-[10px] font-bold text-gray-500">SCIKIT-LEARN</span>
+                </div>
+                <div
+                    class="p-6 bg-brand-surface border border-white/5 rounded-2xl flex flex-col items-center group hover:border-orange-500 transition-all">
+                    <i class="fas fa-fire text-3xl text-orange-500 mb-4 group-hover:scale-110 transition-all"></i>
+                    <span class="text-[10px] font-bold text-gray-500">PYTORCH</span>
+                </div>
+                <div
+                    class="p-6 bg-brand-surface border border-white/5 rounded-2xl flex flex-col items-center group hover:border-yellow-500 transition-all">
+                    <i
+                        class="fas fa-layer-group text-3xl text-yellow-500 mb-4 group-hover:scale-110 transition-all"></i>
+                    <span class="text-[10px] font-bold text-gray-500">TENSORFLOW</span>
+                </div>
+                <div
+                    class="p-6 bg-brand-surface border border-white/5 rounded-2xl flex flex-col items-center group hover:border-indigo-500 transition-all">
+                    <i class="fas fa-database text-3xl text-indigo-400 mb-4 group-hover:scale-110 transition-all"></i>
+                    <span class="text-[10px] font-bold text-gray-500">PANDAS</span>
+                </div>
+                <div
+                    class="p-6 bg-brand-surface border border-white/5 rounded-2xl flex flex-col items-center group hover:border-emerald-500 transition-all">
+                    <i class="fas fa-chart-pie text-3xl text-emerald-400 mb-4 group-hover:scale-110 transition-all"></i>
+                    <span class="text-[10px] font-bold text-gray-500">MATPLOTLIB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Python Code Implementation Snippets -->
+    <section id="code" class="py-32 bg-brand-surface/10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-grotesk font-bold text-white mb-20 text-center">Implementation <span
+                    class="text-gradient">Blueprints</span></h2>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Snippet 1 -->
+                <div class="reveal-left">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-10 h-10 bg-brand-blue rounded-xl flex items-center justify-center text-white font-bold">
+                            01</div>
+                        <h4 class="text-xl font-bold text-white">Supervised Learning Logic</h4>
+                    </div>
+                    <div class="bg-black/40 rounded-3xl p-8 border border-white/5 font-mono text-xs overflow-x-auto">
+                        <pre class="text-blue-300"># Scikit-Learn Regression Pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+
+# 1. Prepare Data
+X = df[['feature1', 'feature2']]
+y = df['target']
+
+# 2. Split (Standard 80/20)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# 3. Model Fit
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# 4. Predict & Evaluate
+preds = model.predict(X_test)
+error = mean_squared_error(y_test, preds)
+print(f"MSE: {error:.4f}")</pre>
+                    </div>
+                </div>
+
+                <!-- Snippet 2 -->
+                <div class="reveal-right">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-10 h-10 bg-brand-cyan rounded-xl flex items-center justify-center text-brand-dark font-bold">
+                            02</div>
+                        <h4 class="text-xl font-bold text-white">Neural Network (Keras)</h4>
+                    </div>
+                    <div class="bg-black/40 rounded-3xl p-8 border border-white/5 font-mono text-xs overflow-x-auto">
+                        <pre class="text-cyan-300"># Simple Deep Learning Architecture
+import tensorflow as tf
+from tensorflow.keras import layers
+
+model = tf.keras.Sequential([
+    # Input Layer + Hidden Layer 1
+    layers.Dense(64, activation='relu', input_shape=(10,)),
+    
+    # Hidden Layer 2
+    layers.Dense(32, activation='relu'),
+    
+    # Dropout (Prevent Overfitting)
+    layers.Dropout(0.2),
+    
+    # Output Layer (Sigmoid for Binary CLS)
+    layers.Dense(1, activation='sigmoid')
+])
+
+model.compile(
+    optimizer='adam', 
+    loss='binary_crossentropy', 
+    metrics=['accuracy']
+)
+
+model.fit(train_data, epochs=10, batch_size=32)</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethical AI Section -->
+    <section id="ethics" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto glass-card p-12 lg:p-20 rounded-[4rem] text-center border-emerald-500/20">
+                <div class="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-10">
+                    <i class="fas fa-shield-halved text-4xl text-emerald-400"></i>
+                </div>
+                <h2 class="text-4xl font-grotesk font-bold text-white mb-6">Ethical <span
+                        class="text-emerald-400">Responsibility</span></h2>
+                <p class="text-gray-400 text-lg mb-12 leading-relaxed">
+                    With great accuracy comes great responsibility. As AI architects, we must ensure our models are free
+                    from bias, respect user privacy, and remain transparent in their decision-making processes.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="p-6 bg-white/5 rounded-2xl">
+                        <h6 class="text-white font-bold mb-2">Transparency</h6>
+                        <p class="text-[10px] text-gray-500 leading-relaxed">Explainable AI (XAI) tools like SHAP/LIME
+                            to understand 'why' a decision was made.</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl">
+                        <h6 class="text-white font-bold mb-2">Fairness Audit</h6>
+                        <p class="text-[10px] text-gray-500 leading-relaxed">Regularly testing for racial, gender, or
+                            age bias in training datasets.</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl">
+                        <h6 class="text-white font-bold mb-2">Data Privacy</h6>
+                        <p class="text-[10px] text-gray-500 leading-relaxed">Implementing Differential Privacy and GDPR
+                            compliance in all ML workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Optimization Techniques (The Finisher) -->
+    <section id="optimization" class="py-32 bg-brand-surface/10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-4xl font-grotesk font-bold text-white mb-6">Advanced Optimization <span
+                        class="text-brand-blue">& Convergence</span></h2>
+                <p class="text-gray-400">Techniques to reach global minima faster and more reliably.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 glass-card rounded-[2rem] border-white/5 hover:border-brand-blue transition-all">
+                    <i class="fas fa-gauge-high text-brand-blue text-3xl mb-6"></i>
+                    <h5 class="text-white font-bold mb-3">Learning Rate Decay</h5>
+                    <p class="text-xs text-gray-500">Slowing down the learning rate as the model approaches minima to
+                        prevent overshooting.</p>
+                </div>
+                <div class="p-8 glass-card rounded-[2rem] border-white/5 hover:border-brand-cyan transition-all">
+                    <i class="fas fa-forward-fast text-brand-cyan text-3xl mb-6"></i>
+                    <h5 class="text-white font-bold mb-3">Momentum</h5>
+                    <p class="text-xs text-gray-500">Accumulating velocity in direction of the local minima to speed up
+                        learning in flat areas.</p>
+                </div>
+                <div class="p-8 glass-card rounded-[2rem] border-white/5 hover:border-indigo-500 transition-all">
+                    <i class="fas fa-layer-group text-indigo-400 text-3xl mb-6"></i>
+                    <h5 class="text-white font-bold mb-3">Batch Normalization</h5>
+                    <p class="text-xs text-gray-500">Normalizing inputs of each layer to stabilize the learning process
+                        and speed up training.</p>
+                </div>
+                <div class="p-8 glass-card rounded-[2rem] border-white/5 hover:border-emerald-500 transition-all">
+                    <i class="fas fa-shuffle text-emerald-400 text-3xl mb-6"></i>
+                    <h5 class="text-white font-bold mb-3">Stochasticity</h5>
+                    <p class="text-xs text-gray-500">Introducing randomness (SGD) to jump out of local minima and find
+                        the global optimal solution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Knowledge Quiz Promotion -->
+    <section class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="bg-brand-blue rounded-[3rem] p-12 lg:p-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="data-particles"></div>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-grotesk font-bold text-white mb-8 relative z-10">Think You Know
+                    Machine Learning?</h2>
+                <p class="text-white/80 text-lg mb-12 max-w-2xl mx-auto relative z-10">Take our 10-minute certification
+                    quiz and win a free ML Mastery handbook. Over 10k architects have already passed.</p>
+                <div class="relative z-10">
+                    <button
+                        class="px-12 py-5 bg-white text-brand-blue rounded-full font-bold text-xl hover:scale-105 transition-all shadow-xl">Take
+                        the Quiz Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ultimate ML Study Notes (Detailed Academic Resource) -->
+    <section id="study-notes" class="py-32 bg-brand-surface/10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">Academic Portal</h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">Detailed <span class="text-gradient">Study
+                        Notes</span></h2>
+                <p class="text-gray-400">Comprehensive documentation for deep conceptual clarity.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Sidebar Navigation for Notes -->
+                <div class="lg:col-span-3">
+                    <div class="sticky top-32 space-y-4">
+                        <button
+                            class="w-full p-4 glass-card rounded-2xl text-left text-xs font-bold text-white border-l-4 border-brand-blue">01.
+                            Probability & Stats</button>
+                        <button
+                            class="w-full p-4 glass-card rounded-2xl text-left text-xs font-bold text-gray-500 hover:text-white transition-all">02.
+                            Linear Algebra</button>
+                        <button
+                            class="w-full p-4 glass-card rounded-2xl text-left text-xs font-bold text-gray-500 hover:text-white transition-all">03.
+                            Optimization Logic</button>
+                        <button
+                            class="w-full p-4 glass-card rounded-2xl text-left text-xs font-bold text-gray-500 hover:text-white transition-all">04.
+                            Model Evaluation</button>
+                        <button
+                            class="w-full p-4 glass-card rounded-2xl text-left text-xs font-bold text-gray-500 hover:text-white transition-all">05.
+                            Feature Engineering</button>
+                    </div>
+                </div>
+
+                <!-- Main Notes Content -->
+                <div class="lg:col-span-9 space-y-16">
+                    <!-- Module 1: Statistical Foundations -->
+                    <div class="glass-card p-10 lg:p-16 rounded-[3rem] border-white/5">
+                        <h3 class="text-3xl font-grotesk font-bold text-white mb-8 border-b border-white/5 pb-6">Phase
+                            01: Statistical Foundations</h3>
+                        <div class="prose prose-invert max-w-none space-y-8">
+                            <div class="space-y-4">
+                                <h4 class="text-xl font-bold text-brand-blue">Probability Theory</h4>
+                                <p class="text-sm text-gray-400 leading-relaxed">Probability is the language of
+                                    uncertainty in ML. Every prediction is essentially a probability distribution. You
+                                    must master:</p>
+                                <ul class="list-disc pl-6 space-y-2 text-sm text-gray-500">
+                                    <li><strong class="text-white">Bayes' Theorem:</strong> P(A|B) = [P(B|A) * P(A)] /
+                                        P(B). This is the core of most classification logic.</li>
+                                    <li><strong class="text-white">Central Limit Theorem:</strong> Explaining why normal
+                                        distribution (Gaussian) is so common in nature and data.</li>
+                                    <li><strong class="text-white">Hypothesis Testing:</strong> P-values, Null
+                                        Hypothesis, and Significance Levels to validate if your model's results are
+                                        real.</li>
+                                </ul>
+                            </div>
+
+                            <div class="p-6 bg-brand-dark/50 rounded-2xl border border-brand-blue/10">
+                                <h5 class="flex items-center gap-3 text-white font-bold mb-4">
+                                    <i class="fas fa-lightbulb text-brand-blue"></i> Pro Tip: The Gaussian Error
+                                </h5>
+                                <p class="text-xs text-gray-500 leading-relaxed italic">Most algorithms assume your data
+                                    follows a normal distribution. If it doesn't, you must apply Log-Transform or
+                                    Box-Cox transformation before training.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h4 class="text-xl font-bold text-brand-cyan">Descriptive Statistics</h4>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="p-6 border border-white/5 rounded-2xl bg-white/5">
+                                        <h6 class="text-white font-bold text-sm mb-2">Central Tendency</h6>
+                                        <p class="text-[10px] text-gray-500">Mean, Median, Mode. Crucial for
+                                            understanding the average behavior of your features.</p>
+                                    </div>
+                                    <div class="p-6 border border-white/5 rounded-2xl bg-white/5">
+                                        <h6 class="text-white font-bold text-sm mb-2">Dispersion</h6>
+                                        <p class="text-[10px] text-gray-500">Variance, Standard Deviation, Range.
+                                            Measures how "spread out" your data is.</p>
+                                    </div>
+                                    <div class="p-6 border border-white/5 rounded-2xl bg-white/5">
+                                        <h6 class="text-white font-bold text-sm mb-2">Correlation</h6>
+                                        <p class="text-[10px] text-gray-500">Pearson vs Spearman. Identifying
+                                            relationships between independent variables.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module 2: Model Evaluation Deep Dive -->
+                    <div class="glass-card p-10 lg:p-16 rounded-[3rem] border-white/5">
+                        <h3 class="text-3xl font-grotesk font-bold text-white mb-8 border-b border-white/5 pb-6">Phase
+                            02: Evaluation Metrics Matrix</h3>
+                        <div class="space-y-10">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <h4 class="text-xl font-bold text-indigo-400">Classification Metrics</h4>
+                                    <div class="space-y-4">
+                                        <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                            <h6 class="text-white text-xs font-bold mb-1 uppercase">Accuracy</h6>
+                                            <p class="text-[11px] text-gray-500">(TP + TN) / Total. Misleading when
+                                                classes are imbalanced (e.g., Credit Card Fraud).</p>
+                                        </div>
+                                        <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                            <h6 class="text-white text-xs font-bold mb-1 uppercase">Precision
+                                                (Specificity)</h6>
+                                            <p class="text-[11px] text-gray-500">TP / (TP + FP). Use when the cost of
+                                                False Positives is high (e.g., Spam Filtering).</p>
+                                        </div>
+                                        <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                            <h6 class="text-white text-xs font-bold mb-1 uppercase">Recall (Sensitivity)
+                                            </h6>
+                                            <p class="text-[11px] text-gray-500">TP / (TP + FN). Use when the cost of
+                                                False Negatives is high (e.g., Cancer Detection).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="text-xl font-bold text-emerald-400">Regression Metrics</h4>
+                                    <div class="space-y-4">
+                                        <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                            <h6 class="text-white text-xs font-bold mb-1 uppercase">MAE</h6>
+                                            <p class="text-[11px] text-gray-500">Mean Absolute Error. Linear penality,
+                                                robust to outliers.</p>
+                                        </div>
+                                        <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                            <h6 class="text-white text-xs font-bold mb-1 uppercase">MSE</h6>
+                                            <p class="text-[11px] text-gray-500">Mean Squared Error. Quadratic penalty,
+                                                very sensitive to outliers.</p>
+                                        </div>
+                                        <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                            <h6 class="text-white text-xs font-bold mb-1 uppercase">R-Squared</h6>
+                                            <p class="text-[11px] text-gray-500">Coefficient of Determination.
+                                                Percentage of variance explained by the model.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Confusion Matrix Visual Note -->
+                            <div class="p-8 bg-brand-surface rounded-[2rem] border border-white/5 text-center">
+                                <h5 class="text-white font-bold mb-6">The Confusion Matrix Decoded</h5>
+                                <div class="inline-grid grid-cols-2 gap-4 max-w-sm mx-auto">
+                                    <div class="p-4 bg-emerald-500/20 border border-emerald-500/40 rounded-xl">
+                                        <span class="text-[9px] text-emerald-400 font-bold block">TRUE POSITIVE</span>
+                                        <p class="text-[10px] text-gray-500">Predicted Yes, Actual Yes</p>
+                                    </div>
+                                    <div class="p-4 bg-red-500/20 border border-red-500/40 rounded-xl">
+                                        <span class="text-[9px] text-red-400 font-bold block">FALSE POSITIVE</span>
+                                        <p class="text-[10px] text-gray-500">Predicted Yes, Actual No</p>
+                                    </div>
+                                    <div class="p-4 bg-red-500/20 border border-red-500/40 rounded-xl">
+                                        <span class="text-[9px] text-red-400 font-bold block">FALSE NEGATIVE</span>
+                                        <p class="text-[10px] text-gray-500">Predicted No, Actual Yes</p>
+                                    </div>
+                                    <div class="p-4 bg-emerald-500/20 border border-emerald-500/40 rounded-xl">
+                                        <span class="text-[9px] text-emerald-400 font-bold block">TRUE NEGATIVE</span>
+                                        <p class="text-[10px] text-gray-500">Predicted No, Actual No</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interview Success Guide -->
+    <section id="interview" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-6 mb-16 reveal-left">
+                    <div
+                        class="w-20 h-20 bg-brand-blue rounded-3xl flex items-center justify-center text-white text-3xl shadow-lg">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-grotesk font-bold text-white mb-2">Interview <span
+                                class="text-gradient">Survival Guide</span></h2>
+                        <p class="text-gray-400">Common technical questions asked at Top-Tier Tech companies.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-12">
+                    <!-- Question 1 -->
+                    <div class="reveal-on-scroll">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-4">
+                            <span
+                                class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-white text-sm">Q1</span>
+                            What is the Curse of Dimensionality?
+                        </h4>
+                        <div class="p-8 glass-card rounded-[2.5rem] border-white/5 ml-12">
+                            <p class="text-sm text-gray-500 leading-relaxed">
+                                As the number of features (dimensions) increases, the data becomes extremely sparse. In
+                                high-dimensional space, all points are almost equidistant from each other, making
+                                clustering and distance-based algorithms (like KNN) fail.
+                                <br /><br />
+                                <strong class="text-brand-cyan">Solution:</strong> Use Dimensionality Reduction
+                                techniques like PCA or Feature Selection.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="reveal-on-scroll" style="transition-delay: 0.1s">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-4">
+                            <span
+                                class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-white text-sm">Q2</span>
+                            Explain Stochastic Gradient Descent (SGD) vs Batch GD.
+                        </h4>
+                        <div class="p-8 glass-card rounded-[2.5rem] border-white/5 ml-12">
+                            <p class="text-sm text-gray-500 leading-relaxed">
+                                <strong class="text-white">Batch GD:</strong> Uses the entire dataset to compute
+                                gradients. Guaranteed to converge but very slow for large data.
+                                <br /><br />
+                                <strong class="text-white">SGD:</strong> Uses only ONE sample at a time. Much faster and
+                                can jump out of local minima, but its path to the global minimum is noisy/jittery.
+                                <br /><br />
+                                <strong class="text-brand-blue">Compromise:</strong> Mini-Batch GD (using sizes like 32,
+                                64, or 128).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="reveal-on-scroll" style="transition-delay: 0.2s">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-4">
+                            <span
+                                class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-white text-sm">Q3</span>
+                            How do you handle Imbalanced Datasets?
+                        </h4>
+                        <div class="p-8 glass-card rounded-[2.5rem] border-white/5 ml-12">
+                            <ul class="list-disc pl-6 space-y-4 text-sm text-gray-500">
+                                <li><strong class="text-white">Resampling:</strong> Oversampling the minority class
+                                    (SMOTE) or Undersampling the majority class.</li>
+                                <li><strong class="text-white">Algorithm Selection:</strong> Use Tree-based models
+                                    (Random Forest, XGBoost) instead of distance-based ones.</li>
+                                <li><strong class="text-white">Metric Change:</strong> Use F1-Score or ROC-AUC instead
+                                    of Accuracy.</li>
+                                <li><strong class="text-white">Cost-Sensitive Learning:</strong> Assign higher penalty
+                                    to errors in the minority class.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="reveal-on-scroll" style="transition-delay: 0.3s">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-4">
+                            <span
+                                class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-white text-sm">Q4</span>
+                            What are Ensemble Methods?
+                        </h4>
+                        <div class="p-8 glass-card rounded-[2.5rem] border-white/5 ml-12">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h6 class="text-brand-blue font-bold text-sm mb-2 uppercase">Bagging (Bootstrap
+                                        Aggregation)</h6>
+                                    <p class="text-xs text-gray-600">Training multiple models in parallel on random
+                                        subsets of data and averaging results. Example: <strong>Random Forest</strong>.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h6 class="text-brand-cyan font-bold text-sm mb-2 uppercase">Boosting</h6>
+                                    <p class="text-xs text-gray-600">Training models sequentially where each model
+                                        corrects errors of the previous one. Example: <strong>XGBoost,
+                                            AdaBoost</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 text-center">
+                    <button
+                        class="px-12 py-5 border border-white/10 rounded-[2rem] text-sm font-bold text-gray-500 hover:text-white hover:bg-white/5 transition-all uppercase tracking-widest">Access
+                        Full Question bank (250+ Q&A)</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MLOps Command Center (Industrial Lifecycle) -->
+    <section id="mlops" class="py-32 bg-brand-dark overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">Production Grade AI</h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">MLOps <span class="text-gradient">Command
+                        Center</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Moving from notebooks to production. The engineering
+                    discipline of delivering reliable ML systems.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- CI/CD -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll">
+                    <div
+                        class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-8 text-2xl">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">Continuous Integration</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Automated testing of data, schemas, and model
+                        code. Ensuring that new updates don't break the existing pipeline.</p>
+                    <ul class="space-y-3 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+                        <li><i class="fas fa-check text-brand-blue mr-2"></i> Unit Testing</li>
+                        <li><i class="fas fa-check text-brand-blue mr-2"></i> Data Validation</li>
+                    </ul>
+                </div>
+
+                <!-- Model Serving -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll"
+                    style="transition-delay: 0.1s">
+                    <div
+                        class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 mb-8 text-2xl">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">Model Serving (Docker)</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Encapsulating models within containers for
+                        consistent deployment across cloud environments (AWS/GCP/Azure).</p>
+                    <ul class="space-y-3 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> Kubernetes</li>
+                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> REST APIs (FastAPI)</li>
+                    </ul>
+                </div>
+
+                <!-- Monitoring -->
+                <div class="glass-card p-10 rounded-[3rem] border-white/5 reveal-on-scroll"
+                    style="transition-delay: 0.2s">
+                    <div
+                        class="w-14 h-14 bg-brand-cyan/10 rounded-2xl flex items-center justify-center text-brand-cyan mb-8 text-2xl">
+                        <i class="fas fa-gauge-high"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">Drift Monitoring</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Detecting 'Concept Drift' where statistical
+                        properties of target variables change over time, requiring model retraining.</p>
+                    <ul class="space-y-3 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+                        <li><i class="fas fa-check text-brand-cyan mr-2"></i> Model Performance</li>
+                        <li><i class="fas fa-check text-brand-cyan mr-2"></i> Data Integrity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimization Laboratory (Advanced Solvers) -->
+    <section id="optimization" class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal-left">
+                    <h2 class="text-4xl font-grotesk font-bold text-white mb-8">The <span
+                            class="text-gradient">Optimization</span> Lab</h2>
+                    <p class="text-gray-400 mb-10 leading-relaxed">How does a model actually LEARN? It's all about
+                        navigating the high-dimensional loss landscape to find the lowest valley.</p>
+
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="text-brand-blue text-2xl mt-1"><i class="fas fa-square-root-variable"></i></div>
+                            <div>
+                                <h6 class="text-white font-bold mb-2">Adam Optimizer</h6>
+                                <p class="text-xs text-gray-500">Combines the benefits of AdaGrad and RMSProp. Adaptive
+                                    moment estimation for faster convergence.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-brand-cyan text-2xl mt-1"><i class="fas fa-wind"></i></div>
+                            <div>
+                                <h6 class="text-white font-bold mb-2">Momentum</h6>
+                                <p class="text-xs text-gray-500">Helps the optimizer accelerate in the right direction
+                                    and dampens oscillations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SVG Optimization Path -->
+                <div class="glass-card p-10 rounded-[4rem] border-white/5 reveal-right relative overflow-hidden">
+                    <svg viewBox="0 0 400 300" class="w-full h-auto">
+                        <!-- Contour Lines (Gradient Descent Visualization) -->
+                        <ellipse cx="200" cy="150" rx="150" ry="100" fill="none" stroke="#222" stroke-width="1" />
+                        <ellipse cx="200" cy="150" rx="100" ry="70" fill="none" stroke="#333" stroke-width="1" />
+                        <ellipse cx="200" cy="150" rx="50" ry="35" fill="none" stroke="#444" stroke-width="1" />
+                        <circle cx="200" cy="150" r="5" fill="#3b82f6" opacity="0.5" />
+
+                        <!-- Path -->
+                        <path d="M50 50 Q100 250 150 100 T200 150" fill="none" stroke="#3b82f6" stroke-width="3"
+                            stroke-dasharray="200" stroke-dashoffset="200" class="animate-path" />
+
+                        <circle cx="50" cy="50" r="4" fill="#60efff" />
+                        <text x="60" y="45" fill="#60efff" font-size="10" font-weight="bold">START</text>
+                        <text x="215" y="160" fill="#3b82f6" font-size="10" font-weight="bold">OPTIMUM</text>
+                    </svg>
+                    <style>
+                        .animate-path {
+                            animation: draw 3s infinite linear;
+                        }
+
+                        @keyframes draw {
+                            to {
+                                stroke-dashoffset: 0;
+                            }
+                        }
+                    </style>
+                    <p class="text-center text-[10px] text-gray-600 font-bold tracking-widest uppercase mt-4">Loss
+                        Surface Navigation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethical AI Framework (Society & Impact) -->
+    <section id="ethics" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-grotesk font-bold text-white mb-8">The <span class="text-gradient">Ethical
+                        AI</span> Framework</h2>
+                <p class="text-gray-400 mb-20 leading-relaxed">Developing AI is a superpower. Every data scientist must
+                    ensure fairness, accountability, and transparency in their models.</p>
+
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                    <div class="p-8 border-l-2 border-brand-blue bg-white/5 rounded-r-[2rem]">
+                        <h5 class="text-white font-bold mb-4 flex items-center gap-3">
+                            <i class="fas fa-balance-scale text-brand-blue"></i> Algorithmic Fairness
+                        </h5>
+                        <p class="text-xs text-gray-500">Ensuring models do not exhibit bias based on race, gender, or
+                            sensitive attributes. Using tools like <strong>IBM AIF360</strong>.</p>
+                    </div>
+                    <div class="p-8 border-l-2 border-brand-cyan bg-white/5 rounded-r-[2rem]">
+                        <h5 class="text-white font-bold mb-4 flex items-center gap-3">
+                            <i class="fas fa-file-contract text-brand-cyan"></i> Interpretability (XAI)
+                        </h5>
+                        <p class="text-xs text-gray-500">Moving away from 'Black Box' models. Using SHAP or LIME values
+                            to explain WHY a model made a specific prediction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- The Industry Lab: Real-World Scenarios -->
+    <section id="scenarios" class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">Practical Execution</h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">Industry <span class="text-gradient">Case
+                        Studies</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">How the world's leading companies use these mathematical
+                    models to solve billion-dollar problems.</p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Case Study 1: Finance -->
+                <div class="glass-card p-12 lg:p-20 rounded-[4rem] border-white/5 reveal-on-scroll">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <span
+                                class="px-4 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 inline-block">Finance
+                                Sector</span>
+                            <h3 class="text-3xl font-grotesk font-bold text-white mb-6">Real-time Fraud Detection</h3>
+                            <p class="text-gray-400 mb-8 leading-relaxed">Processing 500 million transactions daily to
+                                identify fraudulent patterns within 50 milliseconds using an ensemble of XGBoost and
+                                Deep Neural Networks.</p>
+
+                            <div class="grid grid-cols-2 gap-8 mb-10">
+                                <div class="p-6 bg-brand-dark/50 rounded-2xl border border-white/5">
+                                    <h6 class="text-white font-bold text-xs mb-2 uppercase">The Challenge</h6>
+                                    <p class="text-[10px] text-gray-600 leading-relaxed">Imbalanced data (99.9% legit)
+                                        and high cost of false positives (customer friction).</p>
+                                </div>
+                                <div class="p-6 bg-brand-dark/50 rounded-2xl border border-white/5">
+                                    <h6 class="text-white font-bold text-xs mb-2 uppercase">The Solution</h6>
+                                    <p class="text-[10px] text-gray-600 leading-relaxed">SMOTE for balancing, Isolation
+                                        Forest for anomaly detection, and SHAP for explainability.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-6">
+                                <div class="flex -space-x-3">
+                                    <div
+                                        class="w-10 h-10 bg-brand-blue rounded-full border-2 border-brand-dark flex items-center justify-center text-xs font-bold">
+                                        99%</div>
+                                    <div
+                                        class="w-10 h-10 bg-brand-cyan rounded-full border-2 border-brand-dark flex items-center justify-center text-xs font-bold">
+                                        50ms</div>
+                                </div>
+                                <span class="text-xs text-gray-500 font-bold uppercase tracking-widest">Precision &
+                                    Latency Benchmarks</span>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <div
+                                class="absolute inset-0 bg-brand-blue/20 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-all">
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                                class="w-full h-auto rounded-[3rem] relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
+                                alt="Financial Analytics">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Healthcare -->
+                <div class="glass-card p-12 lg:p-20 rounded-[4rem] border-white/5 reveal-on-scroll">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="lg:order-2">
+                            <span
+                                class="px-4 py-1 bg-rose-500/10 text-rose-400 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 inline-block">Healthcare</span>
+                            <h3 class="text-3xl font-grotesk font-bold text-white mb-6">MRI Vision Diagnostics</h3>
+                            <p class="text-gray-400 mb-8 leading-relaxed">Using U-Net and ResNet architectures to
+                                segment tumors in MRI scans with 95% accuracy, assisting radiologists in early-stage
+                                detection.</p>
+
+                            <div class="space-y-6 mb-10">
+                                <div class="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+                                    <div
+                                        class="w-10 h-10 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-400">
+                                        <i class="fas fa-microscope"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="text-white font-bold text-xs uppercase">Vision Transformers</h6>
+                                        <p class="text-[10px] text-gray-600">Handling high-resolution 3D point cloud
+                                            data from medical imaging.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+                                    <div
+                                        class="w-10 h-10 bg-brand-blue/10 rounded-xl flex items-center justify-center text-brand-blue">
+                                        <i class="fas fa-notes-medical"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="text-white font-bold text-xs uppercase">Compliance (HIPAA)</h6>
+                                        <p class="text-[10px] text-gray-600">Federated learning to train models without
+                                            moving patient data.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="px-8 py-4 bg-rose-500 text-white rounded-2xl font-bold hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] transition-all">Download
+                                Medical AI Whitepaper</button>
+                        </div>
+                        <div class="lg:order-1 relative group">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+                                class="w-full h-auto rounded-[3rem] relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
+                                alt="Healthcare Technology">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: E-commerce -->
+                <div class="glass-card p-12 lg:p-20 rounded-[4rem] border-white/5 reveal-on-scroll">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <span
+                                class="px-4 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 inline-block">E-Commerce</span>
+                            <h3 class="text-3xl font-grotesk font-bold text-white mb-6">Personalized RecSys</h3>
+                            <p class="text-gray-400 mb-8 leading-relaxed">Increasing conversion rates by 35% through
+                                Matrix Factorization and Deep Collaborative Filtering for a global fashion retailer.</p>
+
+                            <div class="bg-brand-dark/50 p-8 rounded-3xl border border-white/5 mb-10">
+                                <h6 class="text-white font-bold text-xs uppercase tracking-widest mb-6 text-center">
+                                    Recommendation Pipeline</h6>
+                                <div class="flex justify-between items-center relative">
+                                    <div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/5 -z-10"></div>
+                                    <div
+                                        class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-[10px] text-gray-500 border border-white/10">
+                                        USER</div>
+                                    <div
+                                        class="w-12 h-12 bg-brand-cyan/20 rounded-full flex items-center justify-center text-[10px] text-brand-cyan border border-brand-cyan/40">
+                                        ALGO</div>
+                                    <div
+                                        class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-[10px] text-gray-500 border border-white/10">
+                                        BUY</div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <span class="block text-2xl font-bold text-white">400M</span>
+                                    <span class="text-[9px] text-gray-700 font-bold uppercase">Users</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-2xl font-bold text-white">2.5B</span>
+                                    <span class="text-[9px] text-gray-700 font-bold uppercase">Ratings</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-2xl font-bold text-white">12M</span>
+                                    <span class="text-[9px] text-gray-700 font-bold uppercase">SKUs</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+                                class="w-full h-auto rounded-[3rem] relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
+                                alt="E-commerce Analytics">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Learning Math Deep-Dive -->
+    <section id="deep-math" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto glass-card p-12 lg:p-20 rounded-[4rem] border-brand-blue/10">
+                <h2 class="text-center text-4xl font-grotesk font-bold text-white mb-16">Deep Learning <span
+                        class="text-brand-blue">Calculus</span></h2>
+
+                <div class="space-y-12">
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-brand-cyan font-bold uppercase tracking-widest text-xs mb-4">The Chain Rule</h6>
+                        <p class="text-sm text-gray-500 mb-6">How error is pushed back through layers during
+                            Backpropagation.</p>
+                        <div class="bg-black/30 p-6 rounded-[2rem] font-mono text-center text-white text-lg">
+                            ∂L/∂w = ∂L/&part;y &times; &part;y/&part;z &times; &part;z/&part;w
+                        </div>
+                    </div>
+
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-indigo-400 font-bold uppercase tracking-widest text-xs mb-4">Softmax Activation
+                        </h6>
+                        <p class="text-sm text-gray-500 mb-6">Converting model logits into a probability distribution
+                            for multiclass classification.</p>
+                        <div class="bg-black/30 p-6 rounded-[2rem] font-mono text-center text-white text-lg">
+                            σ(z)<sub>i</sub> = e<sup>z<sub>i</sub></sup> / ∑ e<sup>z<sub>j</sub></sup>
+                        </div>
+                    </div>
+
+                    <div class="reveal-on-scroll">
+                        <h6 class="text-emerald-400 font-bold uppercase tracking-widest text-xs mb-4">Binary
+                            Cross-Entropy Loss</h6>
+                        <p class="text-sm text-gray-500 mb-6">The standard loss function for binary classification
+                            tasks.</p>
+                        <div class="bg-black/30 p-6 rounded-[2rem] font-mono text-center text-white text-sm">
+                            L(y, ŷ) = - [y log(ŷ) + (1-y) log(1-ŷ)]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Learning Track (Study Notes) -->
+    <section id="study-notes" class="py-32 bg-brand-surface/10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6 tracking-tight">Structured <span
+                        class="text-gradient">ML Notes</span></h2>
+                <p class="text-gray-400">Everything you need from statistics to advanced deep calculus.</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto space-y-12">
+                <!-- Module 1: Probability & Stats -->
+                <div class="glass-card p-10 lg:p-16 rounded-[3rem] border-white/5">
+                    <h3 class="text-3xl font-grotesk font-bold text-white mb-8 border-b border-white/5 pb-6">Phase 01:
+                        Probability & Statistics</h3>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <h4 class="text-xl font-bold text-brand-blue">Core Pillars</h4>
+                            <ul class="space-y-4 text-sm text-gray-500 list-none">
+                                <li><strong class="text-white">Bayes' Theorem:</strong> P(A|B) = [P(B|A) * P(A)] / P(B).
+                                    This is the core of most classification logic.</li>
+                                <li><strong class="text-white">Central Limit Theorem:</strong> Explaining why normal
+                                    distribution (Gaussian) is so common in nature and data.</li>
+                                <li><strong class="text-white">Hypothesis Testing:</strong> P-values, Null Hypothesis,
+                                    and Significance Levels to validate if your model's results are real.</li>
+                            </ul>
+                        </div>
+                        <div class="p-8 bg-brand-dark/50 rounded-2xl border border-brand-blue/10">
+                            <h5 class="flex items-center gap-3 text-white font-bold mb-4">
+                                <i class="fas fa-lightbulb text-brand-blue"></i> Pro Tip: The Gaussian Error
+                            </h5>
+                            <p class="text-xs text-gray-500 leading-relaxed italic">Most algorithms assume your data
+                                follows a normal distribution. If it doesn't, you must apply Log-Transform or Box-Cox
+                                transformation before training.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Evaluation Metrics -->
+                <div class="glass-card p-10 lg:p-16 rounded-[3rem] border-white/5">
+                    <h3 class="text-3xl font-grotesk font-bold text-white mb-8 border-b border-white/5 pb-6">Phase 02:
+                        Model Evaluation Matrix</h3>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-bold text-indigo-400">Classification Metrics</h4>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                    <h6 class="text-white text-xs font-bold mb-1 uppercase">Accuracy</h6>
+                                    <p class="text-[11px] text-gray-500">(TP + TN) / Total. Misleading when classes are
+                                        imbalanced.</p>
+                                </div>
+                                <div class="p-4 bg-brand-dark/30 rounded-xl">
+                                    <h6 class="text-white text-xs font-bold mb-1 uppercase">F1-Score</h6>
+                                    <p class="text-[11px] text-gray-500">2 * (P * R) / (P + R). Best for imbalanced
+                                        datasets.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8 bg-brand-surface rounded-[2rem] border border-white/5 text-center">
+                            <h5 class="text-white font-bold mb-6">The Confusion Matrix</h5>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-[9px]">TP
+                                </div>
+                                <div class="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-[9px]">FP</div>
+                                <div class="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-[9px]">FN</div>
+                                <div class="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-[9px]">TN
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interview Success Guide -->
+    <section id="interview" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-6 mb-16">
+                    <div
+                        class="w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center text-white text-3xl">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-grotesk font-bold text-white mb-2">Career Mastery</h2>
+                        <p class="text-gray-400">Common technical interview questions for FAANG/Top-Tier roles.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <div class="p-8 glass-card rounded-[2rem] border-white/5">
+                        <h4 class="text-white font-bold mb-4">Q: What is the Curse of Dimensionality?</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">As features increase, data becomes sparse,
+                            making distance metrics (like Euclidean) meaningless. Solution: PCA or Feature Selection.
+                        </p>
+                    </div>
+                    <div class="p-8 glass-card rounded-[2rem] border-white/5">
+                        <h4 class="text-white font-bold mb-4">Q: Overfitting vs Underfitting?</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Overfitting: Model learns noise (High
+                            Variance). Underfitting: Model is too simple (High Bias). Regularization handles
+                            Overfitting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Master Curriculum Footer -->
+    <section class="py-32 bg-brand-surface/20 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-file-shield text-brand-dark"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-white">Full Notes PDF</h4>
+                        <p class="text-xs text-gray-600 font-bold uppercase">v4.0.0 (Master Edition)</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <button class="px-10 py-4 bg-brand-blue text-white rounded-2xl font-bold hover:shadow-lg">Download
+                        500-Page Guide</button>
+                    <button
+                        class="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-white font-bold hover:bg-white/10">Preview
+                        Chapters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12-Week Mastery Roadmap (The Path to Expertise) -->
+    <section id="roadmap" class="py-32 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h6 class="text-brand-blue font-bold tracking-[0.4em] uppercase mb-4 text-xs">Curriculum Schedule</h6>
+                <h2 class="text-5xl font-grotesk font-bold text-white mb-6">Mastery <span
+                        class="text-gradient">Roadmap</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">A structured 12-week guide to becoming a professional Machine
+                    Learning Engineer.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-1/2 -translate-x-1/2 w-[1px] h-full bg-white/5 top-0 hidden md:block">
+                    </div>
+
+                    <div class="space-y-16">
+                        <!-- Week 1-2 -->
+                        <div class="relative flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 md:text-right">
+                                <h4 class="text-xl font-bold text-white mb-2">Weeks 1-2: Fundamentals</h4>
+                                <p class="text-xs text-gray-500">Python Mastery, Linear Algebra, and NumPy/Pandas
+                                    essentials.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-brand-blue rounded-full border-4 border-brand-dark relative z-10 flex items-center justify-center text-white font-bold text-xs">
+                                01</div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+
+                        <!-- Week 3-4 -->
+                        <div class="relative flex flex-col md:flex-row-reverse items-center gap-12">
+                            <div class="md:w-1/2">
+                                <h4 class="text-xl font-bold text-white mb-2">Weeks 3-4: Classical ML</h4>
+                                <p class="text-xs text-gray-500">Linear/Logistic Regression, Decision Trees, and
+                                    Scikit-Learn.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-brand-cyan rounded-full border-4 border-brand-dark relative z-10 flex items-center justify-center text-white font-bold text-xs">
+                                02</div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+
+                        <!-- Week 5-6 -->
+                        <div class="relative flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 md:text-right">
+                                <h4 class="text-xl font-bold text-white mb-2">Weeks 5-6: Advanced Ensembles</h4>
+                                <p class="text-xs text-gray-500">Random Forest, XGBoost, and Hyperparameter Tuning.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-indigo-400 rounded-full border-4 border-brand-dark relative z-10 flex items-center justify-center text-white font-bold text-xs">
+                                03</div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+
+                        <!-- Week 7-8 -->
+                        <div class="relative flex flex-col md:flex-row-reverse items-center gap-12">
+                            <div class="md:w-1/2">
+                                <h4 class="text-xl font-bold text-white mb-2">Weeks 7-8: Deep Learning</h4>
+                                <p class="text-xs text-gray-500">ANN structure, Backpropagation, and PyTorch/TensorFlow.
+                                </p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-brand-blue rounded-full border-4 border-brand-dark relative z-10 flex items-center justify-center text-white font-bold text-xs">
+                                04</div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+
+                        <!-- Week 9-10 -->
+                        <div class="relative flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 md:text-right">
+                                <h4 class="text-xl font-bold text-white mb-2">Weeks 9-10: Computer Vision</h4>
+                                <p class="text-xs text-gray-500">CNNs, Image Augmentation, and Object Detection.</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-emerald-400 rounded-full border-4 border-brand-dark relative z-10 flex items-center justify-center text-white font-bold text-xs">
+                                05</div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+
+                        <!-- Week 11-12 -->
+                        <div class="relative flex flex-col md:flex-row-reverse items-center gap-12">
+                            <div class="md:w-1/2">
+                                <h4 class="text-xl font-bold text-white mb-2">Weeks 11-12: MLOps</h4>
+                                <p class="text-xs text-gray-500">Model Deployment, Docker, and Cloud CI/CD Pipelines.
+                                </p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-brand-cyan rounded-full border-4 border-brand-dark relative z-10 flex items-center justify-center text-white font-bold text-xs">
+                                06</div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Community & Enrollment Section -->
+    <section id="enrollment" class="py-40 bg-brand-dark relative overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-blue/10 blur-[150px] rounded-full">
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h6 class="text-brand-cyan font-bold tracking-[0.4em] uppercase mb-8 text-xs">Ready to begin?</h6>
+            <h2 class="text-6xl font-grotesk font-bold text-white mb-10 leading-tight">Join the <span
+                    class="text-gradient">Next Wave</span> of AI Pioneers.</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-16 text-lg">Whether you're a beginner or a seasoned dev, our
+                Masterclass provides the depth and mathematical rigor needed to dominate the field of Machine Learning.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-6 items-center">
+                <div class="flex -space-x-4 mb-6 md:mb-0">
+                    <img src="https://i.pravatar.cc/150?u=a1" class="w-12 h-12 rounded-full border-4 border-brand-dark">
+                    <img src="https://i.pravatar.cc/150?u=a2" class="w-12 h-12 rounded-full border-4 border-brand-dark">
+                    <img src="https://i.pravatar.cc/150?u=a3" class="w-12 h-12 rounded-full border-4 border-brand-dark">
+                    <div
+                        class="w-12 h-12 rounded-full bg-brand-blue border-4 border-brand-dark flex items-center justify-center text-[10px] font-bold">
+                        +15k</div>
+                </div>
+                <p class="text-sm text-gray-500 font-medium">Join 15,000+ students already mastering ML.</p>
+            </div>
+
+            <div class="mt-20 flex flex-wrap justify-center gap-6">
+                <a href="#"
+                    class="px-12 py-6 bg-white text-brand-dark rounded-2xl font-bold text-lg hover:bg-brand-blue hover:text-white transition-all shadow-2xl shadow-white/5">Enroll
+                    in Masterclass</a>
+                <a href="#"
+                    class="px-12 py-6 glass-card rounded-2xl font-bold text-lg hover:border-brand-cyan transition-all">Download
+                    Syllabus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5 bg-brand-dark">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-8">
+                <div class="w-6 h-6 bg-brand-blue rounded flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-[10px]"></i>
+                </div>
+                <span class="font-grotesk font-bold text-lg text-white">ML-Mastery</span>
+            </div>
+            <p class="text-gray-500 text-sm mb-10">Simplifying Machine Learning for a Smarter Tomorrow.</p>
+
+            <div
+                class="flex flex-wrap justify-center gap-8 md:gap-12 text-xs font-bold text-gray-700 uppercase tracking-widest mb-16">
+                <a href="#algorithms" class="hover:text-brand-blue transition-all">Algorithm Stack</a>
+                <a href="#mlops" class="hover:text-brand-blue transition-all">Operations</a>
+                <a href="#scenarios" class="hover:text-brand-blue transition-all">Case Studies</a>
+                <a href="#study-notes" class="hover:text-brand-blue transition-all">Documentation</a>
+                <a href="#roadmap" class="hover:text-brand-blue transition-all">Roadmap</a>
+            </div>
+
+            <div class="flex justify-center gap-6 text-gray-400 mb-10">
+                <i class="fab fa-github hover:text-white cursor-pointer transition-all"></i>
+                <i class="fab fa-linkedin hover:text-white cursor-pointer transition-all"></i>
+                <i class="fab fa-twitter hover:text-white cursor-pointer transition-all"></i>
+            </div>
+
+            <div class="text-[10px] uppercase font-bold tracking-[0.2em] text-gray-800">
+                &copy; 2026 ML-MASTERY | MUNNA KUMAR | DESIGNED BY ANTIGRAVITY AI
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Language Processing | ML Masterclass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0061ff',
+                            cyan: '#60efff',
+                            dark: '#050a18',
+                            surface: '#0d1526'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        grotesk: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-dark text-gray-200 font-sans selection:bg-brand-blue selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 nav-blur">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center text-white">
+                    <i class="fas fa-language text-sm"></i>
+                </div>
+                <span class="font-grotesk font-bold text-xl tracking-tight text-white">NLP Engine</span>
+            </a>
+            <div class="hidden lg:flex gap-8 items-center text-sm font-medium">
+                <a href="index.html" class="hover:text-brand-cyan transition-colors">Home</a>
+                <div class="group relative py-4">
+                    <button class="flex items-center gap-1 hover:text-brand-cyan transition-colors">
+                        Modules <i
+                            class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div
+                        class="absolute top-[100%] left-0 w-64 glass-card p-4 rounded-2xl opacity-0 invisible translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-50">
+                        <div class="flex flex-col gap-2">
+                            <a href="algorithms.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Algorithms</div>
+                                    <div class="text-[10px] text-gray-500">Visual logic deep-dive</div>
+                                </div>
+                            </a>
+                            <a href="deep-learning.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Deep Learning</div>
+                                    <div class="text-[10px] text-gray-500">Neural architectures</div>
+                                </div>
+                            </a>
+                            <a href="nlp.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">NLP</div>
+                                    <div class="text-[10px] text-gray-500">Natural Language</div>
+                                </div>
+                            </a>
+                            <a href="industry.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Industry</div>
+                                    <div class="text-[10px] text-gray-500">Real-world impact</div>
+                                </div>
+                            </a>
+                            <a href="ethics.html"
+                                class="p-3 hover:bg-white/5 rounded-xl transition-all flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-white font-bold text-xs">Ethics & Future</div>
+                                    <div class="text-[10px] text-gray-500">Responsible AI</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#metrics" class="hover:text-brand-cyan transition-colors">Metrics</a>
+                <a href="index.html#live-demo" class="hover:text-brand-cyan transition-colors">Visualizer</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 hero-gradient">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl lg:text-7xl font-grotesk font-bold text-white mb-6">Teaching Machines <span
+                    class="text-gradient">To Talk.</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                From simple keyword matching to complex contextual understanding. NLP bridges the gap between human
+                communication and computational logic.
+            </p>
+        </div>
+    </header>
+
+    <!-- Sentiment Lab -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="glass-card p-12 lg:p-20 rounded-[4rem] border-cyan-500/10">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div>
+                        <h6 class="text-brand-cyan font-bold tracking-[0.2em] uppercase mb-4 text-xs">interactive module
+                        </h6>
+                        <h2 class="text-5xl font-grotesk font-bold text-white mb-8">Sentiment <br><span
+                                class="text-gradient">Analyzer Lab</span></h2>
+                        <p class="text-gray-400 mb-10 leading-relaxed">Most NLP models today don't just "read" text;
+                            they map words into a multi-dimensional semantic space where meaning is mathematical
+                            distance.</p>
+
+                        <div class="space-y-6">
+                            <div
+                                class="flex items-center gap-4 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">"This product is life-changing!"</p>
+                                    <p class="text-[10px] text-emerald-400 font-bold">Confidence: 99.2% Positive</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-4 bg-rose-500/10 border border-rose-500/20 rounded-2xl opacity-60">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-rose-500 flex items-center justify-center text-white">
+                                    <i class="fas fa-frown"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">"Extremely disappointed with the service."
+                                    </p>
+                                    <p class="text-[10px] text-rose-400 font-bold">Confidence: 98.8% Negative</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-brand-dark/50 rounded-3xl p-10 border border-white/5">
+                        <h4 class="text-white font-bold mb-8 flex items-center gap-3">
+                            <i class="fas fa-diagram-project text-brand-cyan"></i> Tokenization & Embedding
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-4 py-2 bg-brand-blue/20 rounded-lg text-brand-cyan font-mono text-xs">Teaching</span>
+                                <span
+                                    class="px-4 py-2 bg-brand-blue/20 rounded-lg text-brand-cyan font-mono text-xs">machines</span>
+                                <span
+                                    class="px-4 py-2 bg-brand-blue/20 rounded-lg text-brand-cyan font-mono text-xs">to</span>
+                                <span
+                                    class="px-4 py-2 bg-brand-blue/20 rounded-lg text-brand-cyan font-mono text-xs">talk</span>
+                            </div>
+                            <div class="h-[200px] overflow-hidden">
+                                <canvas id="embeddingChart"></canvas>
+                            </div>
+                            <p class="text-center text-[10px] text-gray-600 mt-4 uppercase font-bold tracking-widest">
+                                Vector Space Projection (Simplified)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Word2Vec & LLM Section -->
+    <section class="py-32 bg-brand-surface/20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-3xl">
+                    <div class="text-brand-blue mb-6"><i class="fas fa-compress-arrows-alt text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Word Embeddings</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed lowercase mb-6">
+                        King - Man + Woman = Queen. Machines understand relationships by calculating vector differences
+                        between word representations.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl">
+                    <div class="text-indigo-400 mb-6"><i class="fas fa-robot text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Large Language Models</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed lowercase mb-6">
+                        LLMs like GPT predict the next most likely token in a sequence based on massive training data.
+                    </p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl">
+                    <div class="text-cyan-400 mb-6"><i class="fas fa-search-plus text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Semantic Search</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed lowercase mb-6">
+                        Search that understands intent, not just keywords. Matching "cold drinks" with "soda" and
+                        "juice".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-600 text-sm">© 2026 AI Educational Portal. Natural Language Processing Track.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('embeddingChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Word Vectors',
+                        data: [
+                            { x: 10, y: 20, r: 8 },
+                            { x: 15, y: 25, r: 8 },
+                            { x: 40, y: 60, r: 10 },
+                            { x: 45, y: 65, r: 10 },
+                            { x: 80, y: 10, r: 5 },
+                        ],
+                        backgroundColor: '#60efff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false, grid: { display: false } },
+                        y: { display: false, grid: { display: false } }
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

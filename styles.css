@@ -1,0 +1,88 @@
+/* Global Styles */
+:root {
+    --brand-blue: #0061ff;
+    --brand-cyan: #60efff;
+    --brand-dark: #050a18;
+    --brand-surface: #0d1526;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--brand-dark);
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--brand-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradients */
+.hero-gradient {
+    background: radial-gradient(circle at top right, rgba(0, 97, 255, 0.15), transparent),
+                radial-gradient(circle at bottom left, rgba(96, 239, 255, 0.1), transparent);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #60efff, #0061ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Scroll Animation Rules */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--brand-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a2333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-blue);
+}
+
+/* Image Hover Effect */
+img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 30px rgba(0, 97, 255, 0.3);
+}
+
+.nav-blur {
+    backdrop-filter: blur(16px);
+    background: rgba(5, 10, 24, 0.8);
+}
